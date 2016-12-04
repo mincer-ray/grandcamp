@@ -1,8 +1,10 @@
 # Grandcamp
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku]
+[Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
+[trello]: https://trello.com/b/prPLfjKS/grandcamp
 
 ## Minimum Viable Product
 
