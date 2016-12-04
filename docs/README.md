@@ -3,7 +3,7 @@
 [Heroku link][heroku]
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://grandcamp.herokuapp.com/
 [trello]: https://trello.com/b/prPLfjKS/grandcamp
 
 ## Minimum Viable Product
