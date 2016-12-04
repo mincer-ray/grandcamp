@@ -17,7 +17,7 @@ sufficient CSS styling:
 - [ ] Song player
 - [ ] Search
 - [ ] Upload/download songs
-- [ ] Production README [sample](docs/production_readme.md)
+- [ ] Production README [sample](../README.md)
 
 ## Design Docs
 * [View Wireframes][wireframes]
