@@ -38,12 +38,9 @@ sufficient CSS styling:
 
 **Objective:** Functioning rails project with front-end Authentication.
 
-### Phase 2: User API (1 day)
+### Phase 2: User API and Artist Components (1 day)
 
 **Objective:** Users artist data can be updated through the API.
-
-### Phase 3: Artist Components (1 day)
-
 **Objective:** Artists have index pages that display their albums.
 
 ### Phase 4: Album Model, API, and components (2 days)

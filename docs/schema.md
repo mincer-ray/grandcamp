@@ -11,6 +11,7 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 bio             | text      |
 artist_pic      | string    |
+band_header     | string    |
 (bonus)is_artist| boolean   | not null
 
 ## albums

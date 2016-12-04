@@ -1,16 +1,3 @@
-Home Page State
-
-```js
-{
-  currentUser: {
-    id: 1,
-    username: "cool-user"
-  }
-}
-```
-
-Artist Page State
-
 ```js
 {
   currentUser: {
@@ -20,32 +7,8 @@ Artist Page State
   artist: {
     band_name: "Rock Jam Dudes",
     artist_id: 3,
-    bio: "the grimey goofs from CT state",
-    albums: {
-      1: {
-        album_art: "url",
-        title: "Great Album",
-      },
-      2: {
-        album_art: "url",
-        title: "This Big Album",
-      }
-    }
-  }
-}
-```
-
-Album Page State
-
-```js
-{
-  currentUser: {
-    id: 1,
-    username: "cool-user"
-  },
-  artist: {
-    band_name: "Rock Jam Dudes",
-    artist_id: 3,
+    artist_pic: "url",
+    band_header: "url",
     bio: "the grimey goofs from CT state",
     albums: {
       1: {
@@ -62,17 +25,21 @@ Album Page State
     title: "This Big Album",
     description: "wow a 56 track album! this is crazy.",
     album_art: "url",
+    date: "10/14/1988",
     songs: {
       1: {
         title: "Long Song Yea",
+        track_num: 1,
         song_url: "song.com/songsong"
       },
       2: {
         title: "Silly Song",
+        track_num: 2,
         song_url: "song.com/bigolsong"
       },
       3: {
         title: "Goof Hurray",
+        track_num: 3;
         song_url: "song.com/goofgoof"
       }
     },
@@ -82,7 +49,7 @@ Album Page State
         name: "Rock"
       },
       2: {
-        id: 1,
+        id: 2,
         name: "Pop"
       }
     }
