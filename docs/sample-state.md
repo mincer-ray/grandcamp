@@ -17,16 +17,19 @@ Artist Page State
     id: 1,
     username: "cool-user"
   },
-  artist {
-    artist_id: 3
-    bio: "the grimey goofs from CT state"
-  },
-  albums: {
-    1: {
-      title: "Great Album",
-    },
-    2: {
-      title: "This Big Album",
+  artist: {
+    band_name: "Rock Jam Dudes",
+    artist_id: 3,
+    bio: "the grimey goofs from CT state",
+    albums: {
+      1: {
+        album_art: "url",
+        title: "Great Album",
+      },
+      2: {
+        album_art: "url",
+        title: "This Big Album",
+      }
     }
   }
 }
@@ -40,21 +43,25 @@ Album Page State
     id: 1,
     username: "cool-user"
   },
-  albums: {
-    1: {
-      title: "Sample State",
-    },
-    2: {
-      title: "Sample State",
-    },
-    3: {
-      title: "Sample State",
+  artist: {
+    band_name: "Rock Jam Dudes",
+    artist_id: 3,
+    bio: "the grimey goofs from CT state",
+    albums: {
+      1: {
+        album_art: "url",
+        title: "Great Album",
+      },
+      2: {
+        album_art: "url",
+        title: "This Big Album",
+      }
     }
   },
   currentAlbum: {
     title: "This Big Album",
     description: "wow a 56 track album! this is crazy.",
-    artist_id: 1,
+    album_art: "url",
     songs: {
       1: {
         title: "Long Song Yea",

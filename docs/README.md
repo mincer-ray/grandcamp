@@ -36,31 +36,34 @@ sufficient CSS styling:
 
 ### Phase 1: Backend setup and Front End User Authentication (2 days)
 
-**Objective:** Functioning rails project with front-end Authentication
+**Objective:** Functioning rails project with front-end Authentication.
 
-### Phase 2: Songs Model, API, and components (2 days)
+### Phase 2: User API (1 day)
 
-**Objective:** Songs can be created(uploaded), read(played), edited and destroyed through
-the API.
+**Objective:** Users artist data can be updated through the API.
 
-### Phase 3: Album Pages (2 day)
+### Phase 3: Artist Components (1 day)
 
-**Objective:** Songs belong to Albums that can be created, read, edited and destroyed through the API.
+**Objective:** Artists have index pages that display their albums.
 
-### Phase 4: Artist Pages (1 days)
+### Phase 4: Album Model, API, and components (2 days)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Albums can be created, read, edited and destroyed through the API.
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Song Model, API, and components (2 days)
 
-**objective:** Allow rich text editing of notes.
+**Objective:** Songs can be created, read, edited and destroyed through the album API.
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: Search (2 days)
 
-**objective:** Add infinite scroll to Notes Index
+**Objective:** Albums can be searched from any page.
+
+### Phase 7: - Tags (Bonus) (?)
+
+**Objective:** Add tags to albums. Add discover page to browse tagged albums.
 
 ### Bonus Features (TBD)
 - [ ] Purchase songs
-- [ ] Follows
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Follows(fan accounts)
+- [ ]
+- [ ]
