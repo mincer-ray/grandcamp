@@ -49,7 +49,7 @@ sufficient CSS styling:
 
 **Objective:** Albums can be created, read, edited and destroyed through the API.
 
-### Phase 5: Song Model, API, and components (2 days)
+### Phase 5: Song Model, Player, API, and components (2 days)
 
 **Objective:** Songs can be created, read, edited and destroyed through the album API.
 
@@ -62,7 +62,7 @@ sufficient CSS styling:
 **Objective:** Add tags to albums. Add discover page to browse tagged albums.
 
 ### Bonus Features (TBD)
+- [ ] User submitted colors for css on artist page
 - [ ] Purchase songs
+- [ ] Artist stats tracking
 - [ ] Follows(fan accounts)
-- [ ]
-- [ ]

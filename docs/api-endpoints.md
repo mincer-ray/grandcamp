@@ -11,7 +11,7 @@
 ### Users
 
 - `POST /api/users`
-- `PATCH /api/users`
+- `PATCH /api/users` - update artist info
 - `GET /api/users/:id` - gets page for artist
 
 ### Session
@@ -21,20 +21,19 @@
 
 ### Albums
 
-- `GET /api/albums`
+- `GET /api/albums` - Index
 - `POST /api/albums`
-- `PATCH /api/albums/:id`
-- Edits both album and song attributes
+- `PATCH /api/albums/:id` - Edits both album and song attributes
 - `GET /api/albums/:id`
 - `DELETE /api/albums/:id`
 
-### Songs[Albums]
+### Songs[Nested Under Albums]
 
 - `GET /api/albums/:id/songs`
 - `POST /api/albums/:id/songs`
 - `DELETE /api/albums/:id/songs/:id`
 
-### Tags
+### Tags[Bonus]
 
 - `GET /api/tags`
 - `POST /api/album/:album_id/tags`

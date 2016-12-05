@@ -13,7 +13,7 @@
 **AuthFormContainer**
 - AuthForm
 
-**NewAlbumContainer**
+**New/EditAlbumContainer**
 + AlbumForm
 
 **AlbumForm**

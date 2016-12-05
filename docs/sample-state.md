@@ -4,6 +4,9 @@
     id: 1,
     username: "cool-user"
   },
+  queryParams: {
+    "search string"
+  },
   artist: {
     band_name: "Rock Jam Dudes",
     artist_id: 3,
