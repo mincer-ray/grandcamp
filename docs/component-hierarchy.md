@@ -59,9 +59,9 @@
 | "/search-results" | "SearchResultsContainer"
 | "/new-album" | "NewAlbumContainer" |
 | "/edit-artist" | "EditArtistContainer" |
-| "/artist/:artistId" | "ArtistContainer" |
-| "/artist/:artistId/album/:albumId" | "AlbumContainer" |
-| "/artist/:artistId/album/:albumId/edit-album" | "EditAlbumContainer" |
+| "/artist/:band_name" | "ArtistContainer" |
+| "/album/:albumId" | "AlbumContainer" |
+| "/album/:albumId/edit-album" | "EditAlbumContainer" |
 |
 | BONUS
 | "/discover" | "DiscoverContainer" |

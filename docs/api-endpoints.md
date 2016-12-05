@@ -31,10 +31,10 @@
 
 - `GET /api/albums/:id/songs`
 - `POST /api/albums/:id/songs`
-- `DELETE /api/albums/:id/songs/:id`
+- `DELETE /api/songs/:id`
 
 ### Tags[Bonus]
 
 - `GET /api/tags`
 - `POST /api/album/:album_id/tags`
-- `DELETE /api/album/:album_id/tags/:tag_name`
+- `DELETE /api/tags/:tag_name`
