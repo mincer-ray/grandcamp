@@ -12,7 +12,7 @@ class Nav extends React.Component {
           </div>
           <ul className="nav-links">
             <li><Link to='/login'>log in</Link></li>
-            <li><Link to='/login'>sign up</Link></li>
+            <li><Link to='/signup'>sign up</Link></li>
           </ul>
         </section>
       </nav>

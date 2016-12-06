@@ -14,7 +14,7 @@
  *= require_self
  *= require reset
  *= require nav
- *= require main
+ *= require form
  */
 
 .group:after {
@@ -26,4 +26,5 @@
  body {
    font-family: Helvetica, sans-serif;
    font-size: 14px;
+   background: #ddd;
  }
