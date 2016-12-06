@@ -12,4 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require reset
+ *= require nav
+ *= require main
  */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+ body {
+   font-family: Helvetica, sans-serif;
+   font-size: 14px;
+ }
