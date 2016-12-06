@@ -5,7 +5,7 @@ class SessionForm extends React.Component {
     return (
       <main className="session-form-content">
         <section className="session-form group">
-        <h2>Account Log in</h2>
+        <h2>Account { this.props.formType }</h2>
         <form>
           <label><p>Username</p>
             <input type="text"></input>

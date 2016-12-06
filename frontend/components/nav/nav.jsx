@@ -8,7 +8,7 @@ class Nav extends React.Component {
         <section className="navbar group">
           <div className="logo">
             <div className="logo-doodad"></div>
-            <a className="logo-text">grandcamp</a>
+            <Link to='/' className="logo-text">grandcamp</Link>
           </div>
           <ul className="nav-links">
             <li><Link to='/login'>log in</Link></li>
