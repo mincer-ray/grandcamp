@@ -15,10 +15,14 @@ class Nav extends React.Component {
   navLinks () {
     if ( this.props.currentUser != undefined ) {
       return(
-        <ul className="nav-links">
-          <Link to='/'><li>{ this.props.currentUser.username }</li></Link>
-          <Link to='/login' onClick={ this.handleLogout }><li>Log out</li></Link>
-        </ul>
+        <div className="logged-in">
+          <a className="user-nav">{ this.props.currentUser.username }</a>
+          <ul className="nav-links">
+            <Link to={ `/artist/${this.props.currentUser.id}` }><li>Home</li></Link>
+            <Link to='/edit-artist'><li>Edit</li></Link>
+            <Link to='/login' onClick={ this.handleLogout }><li>Log out</li></Link>
+          </ul>
+        </div>
       );
     } else {
       return(

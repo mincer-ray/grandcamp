@@ -18,7 +18,10 @@ class ArtistPage extends React.Component {
   render () {
     return (
       <main className="artist-page-container">
-        { this.props.artist.band_name }
+        <div>
+          { this.props.artist.band_name }
+          { this.props.artist.bio }
+        </div>
       </main>
     );
   }

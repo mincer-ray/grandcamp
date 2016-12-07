@@ -1,7 +1,7 @@
-export function update(artist) {
+export function update(artist, id) {
   return $.ajax({
     method: "PATCH",
-    url: `api/users/${ artist.id }`,
+    url: `api/users/${ id }`,
     data: { artist }
   });
 };

@@ -12,9 +12,9 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
+
     if @user
-      render "api/artists/show"
+      render 'api/artists/show'
     else
       render json: ['user not found'], status: 404
     end
@@ -22,9 +22,9 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
-    if current_user == @user && @user.update_attributes(artist_params)
-      render :show
+    # add before action
+    if current_user == @user && @user.update(artist_params)
+      render 'api/artists/show'
     else
       render json: @user.errors.full_messages, status: 422
     end

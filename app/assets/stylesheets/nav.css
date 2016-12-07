@@ -38,9 +38,15 @@
   float: right;
 }
 
+.logged-in {
+  font-size: 12px;
+  position:relative;
+  float: right;
+  color: #7e40a3;
+}
+
 .nav-links {
   float: right;
-  /*padding-top: 17px;*/
   color: #7e40a3;
 }
 
@@ -61,4 +67,17 @@
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.user-nav {
+  float: left;
+  font-weight: bold;
+  padding: 15px 11px;
+  padding-bottom: 17px;
+  cursor: pointer;
+}
+
+.user-nav:hover{
+  display: block;
+  background: #bbb;
 }
