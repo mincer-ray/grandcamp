@@ -1,6 +1,7 @@
 # User model for artists on Grandcamp
 class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
+  validates :band_name, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
