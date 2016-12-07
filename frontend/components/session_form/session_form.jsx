@@ -24,11 +24,15 @@ class SessionForm extends React.Component {
   }
 
   alerts() {
-    return (
-      <ul>
-        <li className="alert">{ this.props.errors.responseJSON }</li>
-      </ul>
-    );
+    if (this.props.errors.responseJSON != undefined) {
+      return (
+        <ul>
+          { this.props.errors.responseJSON.map((error) =>
+            <li className="alert">{ error }</li>
+          )}
+        </ul>
+      );
+    }
   }
 
   render () {
