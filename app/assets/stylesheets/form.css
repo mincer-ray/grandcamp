@@ -47,3 +47,9 @@
   font-weight: bold;
   color: white;
 }
+
+.alert {
+  text-align: right;
+  color: red;
+  padding-bottom: 10px;
+}

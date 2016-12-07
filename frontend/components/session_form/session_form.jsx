@@ -13,10 +13,17 @@ class SessionForm extends React.Component {
     this.setState({[e.currentTarget.id]: e.currentTarget.value});
   }
 
+  componentWillReceiveProps() {
+    this.state.password = "";
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const newUser = Object.assign({}, this.state);
-    this.props.processForm(newUser).then(() => this.redirect());
+    this.props.processForm(newUser).then(
+      () => this.redirect(),
+      () => this.state.password = ""
+    );
   }
 
   redirect() {
@@ -57,7 +64,7 @@ class SessionForm extends React.Component {
           </label>
           <br></br>
           <section>{ this.alerts() }</section>
-          <button>Log in</button>
+          <button>{ this.props.formType }</button>
         </form>
         </section>
       </main>

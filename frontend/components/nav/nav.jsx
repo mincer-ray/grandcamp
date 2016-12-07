@@ -23,8 +23,8 @@ class Nav extends React.Component {
     } else {
       return(
         <ul className="nav-links">
-          <li><Link to='/login'>log in</Link></li>
-          <li><Link to='/signup'>sign up</Link></li>
+          <li><Link to='/login' onClick={ this.props.clearErrors }>log in</Link></li>
+          <li><Link to='/signup' onClick={ this.props.clearErrors }>sign up</Link></li>
         </ul>
       );
     }
