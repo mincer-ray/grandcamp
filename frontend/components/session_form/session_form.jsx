@@ -36,8 +36,8 @@ class SessionForm extends React.Component {
     if (this.props.errors.responseJSON != undefined) {
       return (
         <ul>
-          { this.props.errors.responseJSON.map((error) =>
-            <li className="alert">{ error }</li>
+          { this.props.errors.responseJSON.map((error, i) =>
+            <li className="alert" key={ i }>{ error }</li>
           )}
         </ul>
       );

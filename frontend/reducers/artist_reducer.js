@@ -13,14 +13,7 @@ const ArtistReducer = (state = defaultState, action) => {
 
   switch (action.type) {
     case RECEIVE_ARTIST:
-      newState.currentUser = action.currentUser;
-      newState.errors = [];
-      return newState;
-    case RECEIVE_ERRORS:
-      newState.errors = action.errors;
-      return newState;
-    case CLEAR_ERRORS:
-      newState.errors = [];
+      newState.artist = action.artist;
       return newState;
     default:
       return state;

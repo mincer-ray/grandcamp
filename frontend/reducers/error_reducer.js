@@ -9,7 +9,7 @@ const ErrorReducer = (state = {}, action) => {
       newState = action.errors;
       return newState;
     case CLEAR_ERRORS:
-      newState.errors = [];
+      newState = {};
       return newState;
     default:
       return state;

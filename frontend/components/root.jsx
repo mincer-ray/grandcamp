@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
+import ArtistPageContainer from './artist/artist_page/artist_page_container';
 
 const Root = ({ store }) => {
 
@@ -33,6 +34,7 @@ const Root = ({ store }) => {
             path='/signup'
             component={ SessionFormContainer }
             onEnter={ _redirectIfLoggedIn } />
+          <Route path='/artist/:artistId' component={ ArtistPageContainer } />
         </Route>
       </Router>
     </Provider>

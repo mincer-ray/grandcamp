@@ -6,9 +6,9 @@ export function update(artist) {
   });
 };
 
-export function fetch(artist) {
+export function fetch(artistId) {
   return $.ajax({
     method: "GET",
-    url: `api/users/${ artist.id }`,
+    url: `api/users/${ artistId }`,
   });
 };

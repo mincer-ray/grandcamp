@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { logout, clearErrors } from '../../actions/session_actions';
+import { logout } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/error_actions';
 import Nav from './nav';
 
 function mapStateToProps({ session }) {

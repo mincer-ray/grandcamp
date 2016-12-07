@@ -15,6 +15,7 @@
  *= require reset
  *= require nav
  *= require form
+ *= require artist_page
  */
 
 .group:after {
