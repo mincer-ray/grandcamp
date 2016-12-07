@@ -15,6 +15,11 @@
   float: left;
 }
 
+.logo:hover {
+  display: block;
+  background: #bbb;
+}
+
 .logo-doodad {
   display: block;
   float: left;
@@ -35,13 +40,25 @@
 
 .nav-links {
   float: right;
-  padding-top: 17px;
+  /*padding-top: 17px;*/
   color: #7e40a3;
 }
 
 .nav-links li {
   display: block;
   float: left;
-  padding: 0 11px;
+  padding: 15px 11px;
+  padding-bottom: 17px;
   font-size: 12px;
+}
+
+.nav-links li:hover{
+  display: block;
+  background: #bbb;
+}
+
+.nav-link {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

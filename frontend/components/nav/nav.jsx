@@ -23,8 +23,8 @@ class Nav extends React.Component {
     } else {
       return(
         <ul className="nav-links">
-          <li><Link to='/login' onClick={ this.props.clearErrors }>log in</Link></li>
-          <li><Link to='/signup' onClick={ this.props.clearErrors }>sign up</Link></li>
+          <Link to='/login' onClick={ this.props.clearErrors }><li>log in</li></Link>
+          <Link to='/signup' onClick={ this.props.clearErrors }><li>sign up</li></Link>
         </ul>
       );
     }
@@ -34,10 +34,14 @@ class Nav extends React.Component {
     return (
       <nav className="nav-container">
         <section className="navbar group">
-          <div className="logo">
-            <div className="logo-doodad"></div>
-            <Link to='/' className="logo-text">gc</Link>
-          </div>
+          <Link to='/'>
+            <div className="logo-highlight">
+            <div className="logo">
+              <div className="logo-doodad"></div>
+              <h1 className="logo-text">gc</h1>
+            </div>
+            </div>
+          </Link>
           { this.navLinks() }
         </section>
       </nav>
