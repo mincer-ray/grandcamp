@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
 import Nav from './nav';
 
 function mapStateToProps({ session }) {
@@ -9,7 +10,8 @@ function mapStateToProps({ session }) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return ({
-    dispatch
+    dispatch,
+    logout: () => dispatch(logout())
   });
 }
 

@@ -10,18 +10,20 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
-  const formType = ownProps.location.pathname.slice(1);
-  let processForm = "";
+  let formType = ownProps.location.pathname.slice(1);
+  let func = "";
 
   if (formType === 'login') {
-    processForm = login;
+    func = login;
+    formType = "Log in";
   } else {
-    processForm = signup;
+    func = signup;
+    formType = "Sign up";
   }
 
   return ({
     formType,
-    processForm
+    processForm: (newUser) => dispatch(func(newUser))
   });
 }
 
