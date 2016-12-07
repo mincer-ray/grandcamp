@@ -41,7 +41,7 @@
 }
 
 .session-form button {
-  margin-left: 65px;
+  margin-left: 66px;
   padding: 10px 20px;
   background: #7e40a3;
   font-weight: bold;
@@ -52,4 +52,9 @@
   text-align: right;
   color: red;
   padding-bottom: 10px;
+}
+.session-form .guest {
+  margin-top: 10px;
+  padding: 10px;
+  margin-left: 20px;
 }

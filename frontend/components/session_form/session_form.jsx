@@ -7,6 +7,8 @@ class SessionForm extends React.Component {
     this.state = { username: "", password: "" };
     this.updateState = this.updateState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guest = this.guest.bind(this);
+    this.useGuest = this.useGuest.bind(this);
   }
 
   updateState(e) {
@@ -42,6 +44,18 @@ class SessionForm extends React.Component {
     }
   }
 
+  guest() {
+    if (this.props.formType === "Log in") {
+      return (
+        <button className="guest" onClick={ this.useGuest }>Guest login</button>
+      );
+    }
+  }
+
+  useGuest() {
+    this.state = { username: "Best Guest", password: "password" };
+  }
+
   render () {
     return (
       <main className="session-form-content">
@@ -65,6 +79,7 @@ class SessionForm extends React.Component {
           <br></br>
           <section>{ this.alerts() }</section>
           <button>{ this.props.formType }</button>
+          { this.guest() }
         </form>
         </section>
       </main>

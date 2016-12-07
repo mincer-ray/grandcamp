@@ -16,8 +16,8 @@ class Nav extends React.Component {
     if ( this.props.currentUser != undefined ) {
       return(
         <ul className="nav-links">
-          <li><Link to='/'>{ this.props.currentUser.username }</Link></li>
-          <li><Link to='/login' onClick={ this.handleLogout }>Log out</Link></li>
+          <Link to='/'><li>{ this.props.currentUser.username }</li></Link>
+          <Link to='/login' onClick={ this.handleLogout }><li>Log out</li></Link>
         </ul>
       );
     } else {
