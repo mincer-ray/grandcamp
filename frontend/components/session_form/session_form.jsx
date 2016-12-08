@@ -58,8 +58,8 @@ class SessionForm extends React.Component {
 
   render () {
     return (
-      <main className="session-form-content">
-        <section className="session-form group">
+      <main className="form-content">
+        <section className="form group">
         <h2>Account { this.props.formType }</h2>
         <form onSubmit={ this.handleSubmit }>
           <label><p>Username</p>

@@ -37,8 +37,10 @@ class ArtistForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.artistId !== nextProps.artistId)
-      this.props.fetchArtist(nextProps.artistId);
+    this.setState({
+      band_name: nextProps.artist.band_name,
+      bio: nextProps.artist.bio,
+    });
   }
 
   handleSubmit(e) {
@@ -80,8 +82,8 @@ class ArtistForm extends React.Component {
 
   render () {
     return (
-      <main className="session-form-content">
-        <section className="session-form group">
+      <main className="form-content">
+        <section className="form group band">
         <h2>Edit Band</h2>
         <form onSubmit={ this.handleSubmitWithFile }>
           <label><p>Band Name</p>
@@ -100,12 +102,14 @@ class ArtistForm extends React.Component {
           </label>
           <label><p>Artist Pic</p>
             <input
+              className="inputfile"
               id="artist_pic"
               type="file"
               onChange={this.updateFile}/>
           </label>
           <label><p>Band Header</p>
             <input
+              className="inputfile"
               id="band_header"
               type="file"
               onChange={this.updateFile}/>

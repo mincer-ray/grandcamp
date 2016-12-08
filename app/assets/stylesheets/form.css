@@ -1,36 +1,36 @@
-.session-form-content {
+.form-content {
   width: 975px;
   margin: auto;
   background: white;
   height: 100vh;
 }
 
-.session-form {
+.form {
   padding-top: 40px;
   width: 339px;
   margin: auto;
   display: block;
 }
 
-.session-form h2 {
+.form h2 {
   display: block;
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 20px;
 }
 
-.session-form label {
+.form label {
   float: right;
 }
 
-.session-form p {
+.form p {
   padding-top: 8px;
   padding-right: 5px;
   float: left;
   font-size: 12px;
 }
 
-.session-form input {
+.form input, textarea {
   width: 260px;
   padding: 5px;
   float: right;
@@ -41,7 +41,16 @@
   border-bottom: 1px solid #ddd;
 }
 
-.session-form button {
+/*.form .inputfile {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}*/
+
+.form button {
   margin-left: 66px;
   padding: 10px 20px;
   background: #7e40a3;
@@ -54,7 +63,16 @@
   color: red;
   padding-bottom: 10px;
 }
-.session-form .guest {
+.form .guest {
   padding: 10px;
   margin-left: 20px;
+}
+
+.form textarea {
+  height: 150px;
+  font-size: 14px;
+}
+
+.band {
+  width: 363px;
 }
