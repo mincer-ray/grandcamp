@@ -36,10 +36,12 @@ class ArtistPage extends React.Component {
           { this.props.albums.map(album => {
             return(
               <li key={ album.id }>
+                <Link to={ `/album/${ album.id }` }>
                 <div className="album-display-wrapper">
                   <img src={ album.album_art }/>
                   <h2>{ album.title }</h2>
                 </div>
+                </Link>
               </li>);
             }) }
           </ul>

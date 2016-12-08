@@ -46,6 +46,11 @@
   margin-bottom: 30px;
 }
 
+.album-display-wrapper img {
+  width: 232px;
+  height: 232px;
+}
+
 .album-display-wrapper h2 {
   margin-top: 9px;
   margin-bottom: 3px;

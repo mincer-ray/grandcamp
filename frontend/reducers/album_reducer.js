@@ -1,6 +1,9 @@
 import { RECEIVE_ALBUM, RECEIVE_ALL_ALBUMS } from '../actions/album_actions';
 
-const AlbumReducer = (state = {}, action) => {
+const defaultState = {
+};
+
+const AlbumReducer = (state = defaultState, action) => {
   let newState = Object.assign({}, state);
   Object.freeze(state);
 
@@ -9,7 +12,7 @@ const AlbumReducer = (state = {}, action) => {
       newState = action.albums;
       return newState;
     case RECEIVE_ALBUM:
-      newState.action.album.id = action.album;
+      newState[[action.album.id]] = action.album;
       return newState;
     default:
       return state;
