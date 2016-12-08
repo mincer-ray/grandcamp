@@ -8,8 +8,24 @@ class ArtistForm extends React.Component {
       band_name: this.props.artist.band_name,
       bio: this.props.artist.bio
     };
+
     this.updateState = this.updateState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateFile = this.updateFile.bind(this);
+    this.handleSubmitWithFile = this.handleSubmitWithFile.bind(this);
+  }
+
+  updateFile (e) {
+    let file = e.currentTarget.files[0];
+    const type = e.currentTarget.id;
+    const fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({ [type]: file });
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   updateState(e) {
@@ -33,6 +49,15 @@ class ArtistForm extends React.Component {
     );
   }
 
+  handleSubmitWithFile(e) {
+    var formData = new FormData();
+    formData.append("artist[band_name]", this.state.band_name);
+    formData.append("artist[bio]", this.state.bio);
+    formData.append("artist[artist_pic]", this.state.artist_pic);
+    formData.append("artist[band_header]", this.state.band_header);
+    this.props.updateArtistWithPic(formData, this.redirect, null, this.props.artistId);
+  }
+
   redirect() {
     this.props.router.push(`/artist/${ this.props.artistId }`);
   }
@@ -54,7 +79,7 @@ class ArtistForm extends React.Component {
       <main className="session-form-content">
         <section className="session-form group">
         <h2>Edit Band</h2>
-        <form onSubmit={ this.handleSubmit }>
+        <form onSubmit={ this.handleSubmitWithFile }>
           <label><p>Band Name</p>
             <input
               id="band_name"
@@ -68,6 +93,18 @@ class ArtistForm extends React.Component {
               onChange={ this.updateState }
               defaultValue={ this.state.bio }>
             </textarea>
+          </label>
+          <label><p>Artist Pic</p>
+            <input
+              id="artist_pic"
+              type="file"
+              onChange={this.updateFile}/>
+          </label>
+          <label><p>Band Header</p>
+            <input
+              id="band_header"
+              type="file"
+              onChange={this.updateFile}/>
           </label>
           <br></br>
           <section>{ this.alerts() }</section>

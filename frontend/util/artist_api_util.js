@@ -12,3 +12,15 @@ export function fetch(artistId) {
     url: `api/users/${ artistId }`,
   });
 };
+
+export function updateArtistWithPic(formData, success, failure, id) {
+  $.ajax({
+    url: `api/users/${ id }`,
+    type: 'PATCH',
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData,
+    success
+  });
+}
