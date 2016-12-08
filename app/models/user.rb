@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   # before_validation :ensure_session_token_unique
 
+  has_many :albums,
+    class_name: "Album",
+    foreign_key: :artist_id,
+    primary_key: :id
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

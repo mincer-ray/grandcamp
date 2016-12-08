@@ -9,8 +9,8 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 band_name       | string    | not null, indexed, unique
 bio             | text      |
-artist_pic      | string    | (wherever the art is uploaded to?)
-band_header     | string    | (wherever the art is uploaded to?)
+artist_pic      | attachment|
+band_header     | attachment|
 (bonus)is_artist| boolean   | not null
 email           | string    | not null, indexed, unique // not sure if needed?
 
@@ -19,7 +19,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null, indexed
-album_art   | string    | nut null (wherever the art is uploaded to?)
+album_art   | attachment| nut null
 description | text      | not null
 date        | date      | not null
 artist_id   | integer   | not null, foreign key (references users), indexed

@@ -12,3 +12,35 @@ password: "password",
 bio: "Best sample bio ever and I have to make sure that its a little long so it wraps")
 
 guest.save!
+guest = User.first
+album = guest.albums.new(
+title: "albut 1",
+description: "password")
+
+album.save!
+
+album = guest.albums.new(
+title: "albut 4fdd",
+description: "description")
+
+album.save!
+
+album = guest.albums.new(
+title: "Robot dump",
+description: "afgg")
+
+album.save!
+
+guest = User.new(
+username: "Other Artist",
+password: "password",
+bio: "Best sample bio ever and I have to make sure that its a little long so it wraps")
+
+guest.save!
+
+guest = User.new(
+username: "Rad Dude",
+password: "password",
+bio: "Best sample bio ever and I have to make sure that its a little long so it wraps")
+
+guest.save!

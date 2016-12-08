@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import AlbumIndex from '../../album/album_index/album_index';
 
 class ArtistPage extends React.Component {
   constructor (props) {
@@ -7,12 +8,15 @@ class ArtistPage extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchAllAlbums(this.props.artistId);
     this.props.fetchArtist(this.props.artistId);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.artistId !== nextProps.artistId)
+    if (this.props.artistId !== nextProps.artistId) {
+      this.props.fetchAllAlbums(nextProps.artistId);
       this.props.fetchArtist(nextProps.artistId);
+    }
   }
 
   ArtistSidebar () {
@@ -25,11 +29,30 @@ class ArtistPage extends React.Component {
     );
   }
 
+  AlbumIndex () {
+    return (
+      <main className="album-index-container">
+        <ul>
+          { this.props.albums.map(album => {
+            return(
+              <li key={ album.id }>
+                <div className="album-display-wrapper">
+                  <img src={ album.album_art }/>
+                  { album.title }
+                </div>
+              </li>);
+            }) }
+          </ul>
+      </main>
+    );
+  }
+
   render () {
     return (
       <main className="artist-page-container">
         <div>
           <header className="artist-header-image"><img src={ this.props.artist.band_header } /></header>
+          { this.AlbumIndex() }
           { this.ArtistSidebar() }
         </div>
       </main>

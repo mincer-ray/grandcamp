@@ -9,7 +9,7 @@
 .artist-sidebar {
   display: block;
   width: 120px;
-  padding: 45px 35px 0px 40px;
+  padding: 45px 35px 0 0;
   float: right;
 }
 
@@ -23,4 +23,24 @@
   width: 975px;
   height: 180px;
   overflow: hidden;
+}
+
+.album-index-container {
+  display: block;
+  width: 780px;
+  float: left;
+  margin: 45px 0 0 40px;
+
+}
+
+.album-index-container li {
+  float: left;
+}
+
+.album-display-wrapper {
+  display: block;
+  width: 232px;
+  height: 232px;
+  margin-right: 28px;
+  margin-bottom: 30px;
 }
