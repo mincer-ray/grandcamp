@@ -20,6 +20,7 @@ class Nav extends React.Component {
           <ul className="nav-links">
             <Link to={ `/artist/${this.props.currentUser.id}` }><li>Home</li></Link>
             <Link to='/edit-artist'><li>Edit</li></Link>
+            <Link to='/new-album'><li>Add Album</li></Link>
             <Link to='/login' onClick={ this.handleLogout }><li>Log out</li></Link>
           </ul>
         </div>

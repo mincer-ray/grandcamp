@@ -1,10 +1,10 @@
 import React from 'react';
 import Nav from './nav/nav_container';
 
-const App = ({ children }) => (
+const App = (props) => (
   <div className="root">
-    <Nav />
-    { children }
+    <Nav router={ props.router }/>
+    { props.children }
   </div>
 );
 

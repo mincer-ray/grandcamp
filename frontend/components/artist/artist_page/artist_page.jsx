@@ -38,7 +38,7 @@ class ArtistPage extends React.Component {
               <li key={ album.id }>
                 <div className="album-display-wrapper">
                   <img src={ album.album_art }/>
-                  { album.title }
+                  <h2>{ album.title }</h2>
                 </div>
               </li>);
             }) }

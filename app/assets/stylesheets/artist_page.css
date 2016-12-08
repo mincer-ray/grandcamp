@@ -30,7 +30,8 @@
   width: 780px;
   float: left;
   margin: 45px 0 0 40px;
-
+  color: #7e40a3;
+  font-weight: bold;
 }
 
 .album-index-container li {
@@ -43,4 +44,9 @@
   height: 232px;
   margin-right: 28px;
   margin-bottom: 30px;
+}
+
+.album-display-wrapper h2 {
+  margin-top: 9px;
+  margin-bottom: 3px;
 }
