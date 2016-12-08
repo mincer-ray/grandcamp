@@ -6,7 +6,7 @@ class ArtistForm extends React.Component {
 
     this.state = {
       band_name: this.props.artist.band_name,
-      bio: this.props.artist.bio
+      bio: this.props.artist.bio,
     };
 
     this.updateState = this.updateState.bind(this);
@@ -53,9 +53,13 @@ class ArtistForm extends React.Component {
     var formData = new FormData();
     formData.append("artist[band_name]", this.state.band_name);
     formData.append("artist[bio]", this.state.bio);
-    formData.append("artist[artist_pic]", this.state.artist_pic);
-    formData.append("artist[band_header]", this.state.band_header);
-    this.props.updateArtistWithPic(formData, this.redirect, null, this.props.artistId);
+    if (this.state.artist_pic != undefined) {
+      formData.append("artist[artist_pic]", this.state.artist_pic);
+    }
+    if (this.state.band_header != undefined) {
+      formData.append("artist[band_header]", this.state.band_header);
+    }
+    this.props.updateArtistWithPic(formData, this.redirect.bind(this), null, this.props.artistId);
   }
 
   redirect() {
