@@ -24,6 +24,12 @@
   clear: both;
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
  body {
    font-family: Helvetica, sans-serif;
    font-size: 14px;

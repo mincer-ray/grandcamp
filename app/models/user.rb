@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_attached_file :artist_pic, default_url: "";
-  validates_attachment_content_type
+  has_attached_file :artist_pic, default_url: 'default_artist.png'
+  validates_attachment_content_type :artist_pic, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :band_header, default_url: 'hrt.jpg'
+  validates_attachment_content_type :band_header, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token
   # before_validation :ensure_session_token_unique

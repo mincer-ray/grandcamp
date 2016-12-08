@@ -15,12 +15,22 @@ class ArtistPage extends React.Component {
       this.props.fetchArtist(nextProps.artistId);
   }
 
+  ArtistSidebar () {
+    return (
+      <sidebar className="artist-sidebar">
+        <img src={ this.props.artist.artist_pic } />
+        <h2>{ this.props.artist.band_name }</h2>
+        <p>{ this.props.artist.bio }</p>
+      </sidebar>
+    );
+  }
+
   render () {
     return (
       <main className="artist-page-container">
         <div>
-          { this.props.artist.band_name }
-          { this.props.artist.bio }
+          <header className="artist-header-image"><img src={ this.props.artist.band_header } /></header>
+          { this.ArtistSidebar() }
         </div>
       </main>
     );

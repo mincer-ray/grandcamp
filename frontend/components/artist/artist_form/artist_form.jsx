@@ -65,8 +65,8 @@ class ArtistForm extends React.Component {
           <label><p>Band Biography</p>
             <textarea
               id="bio"
-              onChange={ this.updateState }>
-              { this.state.bio }
+              onChange={ this.updateState }
+              defaultValue={ this.state.bio }>
             </textarea>
           </label>
           <br></br>

@@ -5,3 +5,22 @@
   background: white;
   box-sizing: border-box;
 }
+
+.artist-sidebar {
+  display: block;
+  width: 120px;
+  padding: 45px 35px 0px 40px;
+  float: right;
+}
+
+.artist-sidebar h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.artist-header-image {
+  display: block;
+  width: 975px;
+  height: 180px;
+  overflow: hidden;
+}
