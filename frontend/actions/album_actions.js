@@ -24,6 +24,26 @@ export const fetchAllAlbums = (artistId) => {
   };
 };
 
+export const createAlbum = (album) => {
+  return (dispatch) => {
+    return APIUtil.create(album)
+    .then(
+      album => dispatch(receiveAlbum(album)),
+      errors => dispatch(receiveErrors(errors))
+    );
+  };
+};
+
+export const updateAlbum = (album, id) => {
+  return (dispatch) => {
+    return APIUtil.update(album, id)
+    .then(
+      album => dispatch(receiveAlbum(album)),
+      errors => dispatch(receiveErrors(errors))
+    );
+  };
+};
+
 export const receiveAlbum = album => ({
   type: RECEIVE_ALBUM,
   album

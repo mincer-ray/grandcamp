@@ -36,7 +36,13 @@ class Api::AlbumsController < ApplicationController
   end
 
   def destroy
+    @album = Album.find(params[:id])
 
+    if @album && @album.destroy
+      render json: ['success']
+    else
+      render json: ['error'], status: 404
+    end
   end
 
   private

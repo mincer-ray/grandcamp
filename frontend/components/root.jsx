@@ -7,6 +7,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import ArtistPageContainer from './artist/artist_page/artist_page_container';
 import ArtistFormContainer from './artist/artist_form/artist_form_container';
 import AlbumPageContainer from './album/album_page/album_page_container';
+import AlbumFormContainer from './album/album_form/album_form_container';
 
 const Root = ({ store }) => {
 
@@ -38,6 +39,8 @@ const Root = ({ store }) => {
             onEnter={ _redirectIfLoggedIn } />
           <Route path='/artist/:artistId' component={ ArtistPageContainer }/>
           <Route path='/album/:albumId' component={ AlbumPageContainer } />
+          <Route path='/album/:albumId/edit' component={ AlbumFormContainer } />
+          <Route path='/new-album' component={ AlbumFormContainer } />
           <Route
             path='/edit-artist'
             component={ ArtistFormContainer }

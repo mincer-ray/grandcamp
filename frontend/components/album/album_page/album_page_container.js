@@ -7,7 +7,8 @@ function mapStateToProps(state, { params }) {
   let albumId = parseInt(params.albumId);
   return ({
     album: state.albums[albumId],
-    artist: state.artist
+    artist: state.artist,
+    currentUser: state.session.currentUser
   });
 }
 

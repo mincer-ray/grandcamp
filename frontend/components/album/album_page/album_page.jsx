@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class AlbumPage extends React.Component {
   constructor (props) {
@@ -25,6 +26,18 @@ class AlbumPage extends React.Component {
     );
   }
 
+  EditButtons () {
+    if ( this.props.currentUser.id === this.props.album.id ) {
+      return(
+        <Link to={ `/album/${ this.props.album.id }/edit` }><p>Edit Album</p></Link>
+      );
+    } else {
+      return(
+        <p>not logged in</p>
+      );
+    }
+  }
+
   render () {
     if (this.props.album) {
       return(
@@ -34,6 +47,7 @@ class AlbumPage extends React.Component {
             <section className="album-play-container">
               <h2>{ this.props.album.title }</h2>
               <h3>by <strong>{ this.props.artist.band_name }</strong></h3>
+              { this.EditButtons() }
             </section>
             <section className="album-art-container">
               <div className="art-container"><img src={ this.props.album.album_art }/></div>
