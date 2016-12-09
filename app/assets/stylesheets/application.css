@@ -17,6 +17,7 @@
  *= require form
  *= require artist_page
  *= require album_page
+ *= require footer
  */
 
 .group:after {

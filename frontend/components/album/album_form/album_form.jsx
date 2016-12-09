@@ -67,7 +67,6 @@ class AlbumForm extends React.Component {
   }
 
   redirect() {
-    debugger
     this.props.router.push(`/album/${ this.props.album.id }`);
   }
 

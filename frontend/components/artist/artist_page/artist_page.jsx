@@ -51,7 +51,7 @@ class ArtistPage extends React.Component {
 
   render () {
     return (
-      <main className="artist-page-container">
+      <main className="artist-page-container group">
         <div>
           <header className="artist-header-image">
             <Link to={ `/artist/${ this.props.artistId }` }>
