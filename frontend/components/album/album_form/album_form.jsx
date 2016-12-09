@@ -11,7 +11,10 @@ class AlbumForm extends React.Component {
         title: this.props.album.title,
         description: this.props.album.description,
         date: this.props.date,
-        album_art: this.props.album_art
+        album_art: this.props.album_art,
+        trackCount: 1,
+        trackForms: [],
+        songs: []
       };
     } else {
       this.state = {
@@ -19,13 +22,16 @@ class AlbumForm extends React.Component {
         title: "",
         description: "",
         date: "",
-        album_art: ""
+        album_art: "",
+        trackCount: 1,
+        trackForms: []
       };
     }
 
     this.updateState = this.updateState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.addSongForm = this.addSongForm.bind(this);
   }
 
   componentDidMount() {
@@ -55,14 +61,40 @@ class AlbumForm extends React.Component {
     }
   }
 
+  parseSongData() {
+    let parsedState = {};
+
+    for (var key in this.state) {
+      if (key.slice(0, 4) === "song") {
+
+      }
+    }
+  }
+
   handleSubmit(e) {
     var formData = new FormData();
+    var songs = [this.state.song, this.state.song2];
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
     formData.append("album[date]", this.state.date);
     if (this.state.album_art != undefined) {
       formData.append("album[album_art]", this.state.album_art);
     }
+    if (this.state.trackCount > 1) {
+      for (var key in this.state) {
+        if (key.slice(0, 4) === "song") {
+          let id = key[key.length-1];
+          let type = key.slice(4);
+          type = type.substring(0, type.length-1).toLowerCase();
+          formData.append(`album[songs_attributes][${ id }][${ type }]`, this.state[key]);
+        }
+      }
+
+      // for (var i = 0; i < songs.length; i++) {
+      //   formData.append(`album[songs_attributes][${i}][${ key.slice(4).toLowerCase() }]`, songs[i]);
+      // }
+    }
+    debugger
     this.props.processForm(formData, this.redirect.bind(this), null, parseInt(this.props.params.albumId));
   }
 
@@ -72,6 +104,38 @@ class AlbumForm extends React.Component {
 
   updateState(e) {
     this.setState({[e.currentTarget.id]: e.currentTarget.value});
+  }
+
+  songForm() {
+    return(
+      <div>
+        <p>Track { this.state.trackCount }</p>
+        <label><p>Title</p>
+          <input
+            id={ `songTitle${ this.state.trackCount }` }
+            type='text'
+            onChange={ this.updateState }/>
+        </label>
+        <label><p>Track #</p>
+          <input
+            id={ `songTrack_Num${ this.state.trackCount }` }
+            type='text'
+            onChange={ this.updateState }/>
+        </label>
+        <label><p>Audio File</p>
+          <input
+            id={ `songFile${ this.state.trackCount }` }
+            type='file'
+            onChange={ this.updateFile }/>
+        </label>
+      </div>
+    );
+  }
+
+  addSongForm(e) {
+    let newForms = this.state.trackForms;
+    newForms.push(this.songForm());
+    this.setState({ trackForms: newForms, trackCount: this.state.trackCount + 1 });
   }
 
   render () {
@@ -103,15 +167,18 @@ class AlbumForm extends React.Component {
           </label>
           <label><p>Release Date</p>
             <input
-              className="inputfile"
               id="date"
               type="date"
               value={ this.state.date }
               onChange={this.updateState}/>
           </label>
+          <a onClick={ this.addSongForm }>+Add Song+</a>
+          <ul className="trackForms">
+            { this.state.trackForms }
+          </ul>
           <br></br>
           <Alerts errors={ this.props.errors }/>
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </form>
         </section>
       </main>
@@ -120,3 +187,11 @@ class AlbumForm extends React.Component {
 }
 
 export default AlbumForm;
+
+// <label><p>Song2</p>
+//   <input
+//     className='inputfile'
+//     id='song2'
+//     type='file'
+//     onChange={this.updateFile}/>
+// </label>

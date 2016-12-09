@@ -18,13 +18,21 @@ class Album < ActiveRecord::Base
   has_attached_file :album_art, default_url: 'default.jpg'
   validates_attachment_content_type :album_art, content_type: /\Aimage\/.*\Z/
 
+  after_initialize :set_default_date
+
+  def set_default_date
+    self.date ||= Date.today
+  end
+
   belongs_to :artist,
     class_name: "User",
     foreign_key: :artist_id,
     primary_key: :id
 
-  has_many :songs,
+  has_many :songs, inverse_of: :album,
     class_name: "Song",
     foreign_key: :album_id,
     primary_key: :id
+
+  accepts_nested_attributes_for :songs, allow_destroy: true
 end

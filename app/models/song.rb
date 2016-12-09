@@ -13,7 +13,7 @@
 #
 
 class Song < ActiveRecord::Base
-  validates :title, :track_num, :album_id, presence: true
+  validates :title, :track_num, :album, presence: true
   has_attached_file :file, default_url: 'default.jpg'
   validates_attachment_content_type :file, content_type:
   [
@@ -28,7 +28,7 @@ class Song < ActiveRecord::Base
     'audio/x-mpegaudio'
   ]
 
-  belongs_to :album,
+  belongs_to :album, inverse_of: :songs,
     class_name: 'Album',
     foreign_key: :album_id,
     primary_key: :id

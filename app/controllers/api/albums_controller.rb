@@ -16,6 +16,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
+    debugger
     @album = current_user.albums.new(album_params)
 
     if @album.save
@@ -27,7 +28,7 @@ class Api::AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-    
+
     if @album && @album.update(album_params)
       render 'api/albums/show'
     else
@@ -48,6 +49,6 @@ class Api::AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:title, :description, :album_art)
+    params.require(:album).permit(:title, :description, :album_art, :date, songs_attributes: [:file, :title, :track_num])
   end
 end

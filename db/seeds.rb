@@ -15,7 +15,7 @@ guest.save!
 guest = User.first
 album = guest.albums.new(
 title: "albut 1",
-description: "password")
+description: "not a password")
 
 album.save!
 
