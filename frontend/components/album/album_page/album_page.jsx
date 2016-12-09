@@ -27,7 +27,7 @@ class AlbumPage extends React.Component {
   }
 
   EditButtons () {
-    if ( this.props.currentUser.id === this.props.album.id ) {
+    if ( this.props.currentUser.id === this.props.album.artist_id ) {
       return(
         <Link to={ `/album/${ this.props.album.id }/edit` }><p>Edit Album</p></Link>
       );
