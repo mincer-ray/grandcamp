@@ -1,4 +1,4 @@
-import { RECEIVE_ARTIST, UPDATE_ARTIST, RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/artist_actions';
+import { RECEIVE_ARTIST, UPDATE_ARTIST } from '../actions/artist_actions';
 
 const defaultState = {
   band_name: "",

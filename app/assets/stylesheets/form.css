@@ -60,6 +60,8 @@
 
 .alert {
   text-align: right;
+  display: block;
+  float: right;
   color: red;
   padding-bottom: 10px;
 }

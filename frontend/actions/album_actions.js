@@ -34,9 +34,9 @@ export const createAlbum = (album) => {
   };
 };
 
-export const updateAlbum = (album, id) => {
+export const updateAlbum = (album, success, failure, id) => {
   return (dispatch) => {
-    return APIUtil.update(album, id)
+    return APIUtil.update(album, success, failure, id)
     .then(
       album => dispatch(receiveAlbum(album)),
       errors => dispatch(receiveErrors(errors))

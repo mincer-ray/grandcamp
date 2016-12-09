@@ -27,7 +27,7 @@ class Api::AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-
+    
     if @album && @album.update(album_params)
       render 'api/albums/show'
     else

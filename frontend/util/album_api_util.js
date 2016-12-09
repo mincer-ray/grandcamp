@@ -24,14 +24,14 @@ export function create(formData) {
   });
 }
 
-export function update(formData, id) {
-  debugger
+export function update(formData, success, failure, id) {
   return $.ajax({
     url: `api/albums/${ id }`,
     type: 'PATCH',
     processData: false,
     contentType: false,
     dataType: 'json',
-    data: formData
+    data: formData,
+    success
   });
 }

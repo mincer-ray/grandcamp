@@ -7,12 +7,14 @@ class AlbumPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAlbum(this.props.params.albumId);
+    this.props.fetchAlbum(this.props.params.albumId)
+      .then(() => this.props.fetchArtist(this.props.album.artist_id));
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.albumId !== nextProps.albumId) {
-      this.props.fetchAlbum(nextProps.albumId);
+      this.props.fetchAlbum(nextProps.albumId)
+        .then(() => this.props.fetchArtist(this.props.album.artist_id));
     }
   }
 
@@ -29,7 +31,7 @@ class AlbumPage extends React.Component {
   EditButtons () {
     if ( this.props.currentUser.id === this.props.album.artist_id ) {
       return(
-        <Link to={ `/album/${ this.props.album.id }/edit` }><p>Edit Album</p></Link>
+        <Link to={ `/album/${ this.props.album.id }/edit` } onClick={ this.props.clearErrors }><p>Edit Album</p></Link>
       );
     } else {
       return(

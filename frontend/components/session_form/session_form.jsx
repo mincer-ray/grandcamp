@@ -1,4 +1,5 @@
 import React from 'react';
+import Alerts from '../error/alerts';
 
 class SessionForm extends React.Component {
   constructor (props) {
@@ -30,18 +31,6 @@ class SessionForm extends React.Component {
 
   redirect() {
     this.props.router.push("/");
-  }
-
-  alerts() {
-    if (this.props.errors.responseJSON != undefined) {
-      return (
-        <ul>
-          { this.props.errors.responseJSON.map((error, i) =>
-            <li className="alert" key={ i }>{ error }</li>
-          )}
-        </ul>
-      );
-    }
   }
 
   guest() {
@@ -77,7 +66,7 @@ class SessionForm extends React.Component {
               value={ this.state.password }/>
           </label>
           <br></br>
-          <section>{ this.alerts() }</section>
+          <Alerts errors={ this.props.errors }/>
           <button>{ this.props.formType }</button>
           { this.guest() }
         </form>

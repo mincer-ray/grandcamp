@@ -14,9 +14,9 @@ export const fetchArtist = (artistId) => {
   };
 };
 
-export const updateArtist = (artist, id) => {
+export const updateArtist = (artist, success, failure, id) => {
   return (dispatch) => {
-    return APIUtil.update(artist, id)
+    return APIUtil.update(artist, success, failure, id)
       .then(
         artist => dispatch(receiveArtist(artist)),
         errors => dispatch(receiveErrors(errors))

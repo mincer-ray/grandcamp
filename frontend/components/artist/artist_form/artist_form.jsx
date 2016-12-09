@@ -10,9 +10,8 @@ class ArtistForm extends React.Component {
     };
 
     this.updateState = this.updateState.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
-    this.handleSubmitWithFile = this.handleSubmitWithFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateFile (e) {
@@ -32,26 +31,7 @@ class ArtistForm extends React.Component {
     this.setState({[e.currentTarget.id]: e.currentTarget.value});
   }
 
-  componentDidMount() {
-    this.props.fetchArtist(this.props.artistId);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      band_name: nextProps.artist.band_name,
-      bio: nextProps.artist.bio,
-    });
-  }
-
   handleSubmit(e) {
-    e.preventDefault();
-    const updateParams = Object.assign({}, this.state);
-    this.props.updateArtist(updateParams, this.props.artistId).then(
-      () => this.redirect()
-    );
-  }
-
-  handleSubmitWithFile(e) {
     var formData = new FormData();
     formData.append("artist[band_name]", this.state.band_name);
     formData.append("artist[bio]", this.state.bio);
@@ -61,7 +41,7 @@ class ArtistForm extends React.Component {
     if (this.state.band_header != undefined) {
       formData.append("artist[band_header]", this.state.band_header);
     }
-    this.props.updateArtistWithPic(formData, this.redirect.bind(this), null, this.props.artistId);
+    this.props.updateArtist(formData, this.redirect.bind(this), null, this.props.artistId);
   }
 
   redirect() {
@@ -85,7 +65,7 @@ class ArtistForm extends React.Component {
       <main className="form-content">
         <section className="form group band">
         <h2>Edit Band</h2>
-        <form onSubmit={ this.handleSubmitWithFile }>
+        <form onSubmit={ this.handleSubmit }>
           <label><p>Band Name</p>
             <input
               id="band_name"

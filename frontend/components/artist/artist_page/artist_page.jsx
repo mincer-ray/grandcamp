@@ -53,7 +53,11 @@ class ArtistPage extends React.Component {
     return (
       <main className="artist-page-container">
         <div>
-          <header className="artist-header-image"><img src={ this.props.artist.band_header } /></header>
+          <header className="artist-header-image">
+            <Link to={ `/artist/${ this.props.artistId }` }>
+              <img src={ this.props.artist.band_header } />
+            </Link>
+          </header>
           { this.AlbumIndex() }
           { this.ArtistSidebar() }
         </div>

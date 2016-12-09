@@ -1,19 +1,45 @@
 import React from 'react';
+import Alerts from '../../error/alerts';
 
 class AlbumForm extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = {
-      title: "",
-      description: "",
-      date: "",
-      album_art: ""
-    };
+    if (this.props.album) {
+      this.state = {
+        id: this.props.album.id,
+        title: this.props.album.title,
+        description: this.props.album.description,
+        date: this.props.date,
+        album_art: this.props.album_art
+      };
+    } else {
+      this.state = {
+        id: "",
+        title: "",
+        description: "",
+        date: "",
+        album_art: ""
+      };
+    }
 
     this.updateState = this.updateState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.formType === "Edit Album") {
+      this.props.fetchAlbum(this.props.params.albumId);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.formType === "Edit Album") {
+      if (this.props.albumId !== parseInt(nextProps.params.albumId)) {
+        this.props.fetchAlbum(nextProps.params.albumId);
+      }
+    }
   }
 
   updateFile (e) {
@@ -34,24 +60,19 @@ class AlbumForm extends React.Component {
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
     formData.append("album[date]", this.state.date);
-    formData.append("album[album_art]", this.state.album_art);
-    this.props.processForm(formData, parseInt(this.props.params.albumId));
+    if (this.state.albumArt != undefined) {
+      formData.append("album[album_art]", this.state.album_art);
+    }
+    this.props.processForm(formData, this.redirect.bind(this), null, parseInt(this.props.params.albumId));
+  }
+
+  redirect() {
+    debugger
+    this.props.router.push(`/album/${ this.props.album.id }`);
   }
 
   updateState(e) {
     this.setState({[e.currentTarget.id]: e.currentTarget.value});
-  }
-
-  alerts() {
-    if (this.props.errors.responseJSON != undefined) {
-      return (
-        <ul>
-          { this.props.errors.responseJSON.map((error, i) =>
-            <li className="alert" key={ i }>{ error }</li>
-          )}
-        </ul>
-      );
-    }
   }
 
   render () {
@@ -86,10 +107,11 @@ class AlbumForm extends React.Component {
               className="inputfile"
               id="date"
               type="date"
+              value={ this.state.date }
               onChange={this.updateState}/>
           </label>
           <br></br>
-          <section>{ this.alerts() }</section>
+          <Alerts errors={ this.props.errors }/>
           <button>Submit</button>
         </form>
         </section>

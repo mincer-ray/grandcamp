@@ -22,6 +22,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    
     # TODO: add before action
     if current_user == @user && @user.update(artist_params)
       render 'api/artists/show'

@@ -1,11 +1,3 @@
-export function update(artist, id) {
-  return $.ajax({
-    method: "PATCH",
-    url: `api/users/${ id }`,
-    data: { artist }
-  });
-};
-
 export function fetch(artistId) {
   return $.ajax({
     method: "GET",
@@ -13,8 +5,8 @@ export function fetch(artistId) {
   });
 };
 
-export function updateArtistWithPic(formData, success, failure, id) {
-  $.ajax({
+export function update(formData, success, failure, id) {
+  return $.ajax({
     url: `api/users/${ id }`,
     type: 'PATCH',
     processData: false,
