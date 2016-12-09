@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AlbumPage from './album_page';
-import { fetchAlbum, fetchAllAlbums } from '../../../actions/album_actions';
+import { fetchAlbum, fetchAllAlbums, destroyAlbum } from '../../../actions/album_actions';
 import { fetchArtist } from '../../../actions/artist_actions';
 import { clearErrors } from '../../../actions/error_actions';
 
@@ -18,6 +18,7 @@ function mapDispatchToProps(dispatch) {
     dispatch,
     fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
     fetchAllAlbums: (albumId) => dispatch(fetchAllAlbums(albumId)),
+    destroyAlbum: (id) => dispatch(destroyAlbum(id)),
     fetchArtist: (artistId) => dispatch(fetchArtist(artistId)),
     clearErrors: () => dispatch(clearErrors())
   });

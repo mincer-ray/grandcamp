@@ -24,6 +24,13 @@ export function create(formData) {
   });
 }
 
+export function destroy(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/albums/${ id }`,
+  });
+}
+
 export function update(formData, success, failure, id) {
   return $.ajax({
     url: `api/albums/${ id }`,

@@ -31,7 +31,10 @@ class AlbumPage extends React.Component {
   EditButtons () {
     if ( this.props.currentUser.id === this.props.album.artist_id ) {
       return(
-        <Link to={ `/album/${ this.props.album.id }/edit` } onClick={ this.props.clearErrors }><p>Edit Album</p></Link>
+        <div>
+          <Link to={ `/album/${ this.props.album.id }/edit` } onClick={ this.props.clearErrors }><p>Edit Album</p></Link>
+          <Link to={ `/artist/${ this.props.album.artist_id }` } onClick={ this.props.destroyAlbum(this.props.album.id) }><p>Delete Album</p></Link>
+        </div>
       );
     } else {
       return(

@@ -34,6 +34,12 @@ export const createAlbum = (album) => {
   };
 };
 
+export const destroyAlbum = (id) => {
+  return (dispatch) => {
+    return APIUtil.destroy(id);
+  };
+};
+
 export const updateAlbum = (album, success, failure, id) => {
   return (dispatch) => {
     return APIUtil.update(album, success, failure, id)
