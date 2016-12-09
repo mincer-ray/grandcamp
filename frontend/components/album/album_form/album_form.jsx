@@ -60,7 +60,7 @@ class AlbumForm extends React.Component {
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
     formData.append("album[date]", this.state.date);
-    if (this.state.albumArt != undefined) {
+    if (this.state.album_art != undefined) {
       formData.append("album[album_art]", this.state.album_art);
     }
     this.props.processForm(formData, this.redirect.bind(this), null, parseInt(this.props.params.albumId));

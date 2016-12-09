@@ -33,7 +33,6 @@ class AlbumPage extends React.Component {
       return(
         <div>
           <Link to={ `/album/${ this.props.album.id }/edit` } onClick={ this.props.clearErrors }><p>Edit Album</p></Link>
-          <Link to={ `/artist/${ this.props.album.artist_id }` } onClick={ this.props.destroyAlbum(this.props.album.id) }><p>Delete Album</p></Link>
         </div>
       );
     } else {
@@ -42,6 +41,7 @@ class AlbumPage extends React.Component {
       );
     }
   }
+  // <Link to={ `/artist/${ this.props.album.artist_id }` } onClick={ this.props.destroyAlbum(this.props.album.id) }><p>Delete Album</p></Link>
 
   render () {
     if (this.props.album) {

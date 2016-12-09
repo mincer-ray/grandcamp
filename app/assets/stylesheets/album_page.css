@@ -1,7 +1,7 @@
 .album-content-container {
   width: 975px;
   margin: auto;
-  height: 100vh;
+  height: 100%;
   background: white;
   box-sizing: border-box;
 }

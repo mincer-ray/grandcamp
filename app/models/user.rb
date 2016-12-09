@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                       :integer          not null, primary key
+#  username                 :string           not null
+#  password_digest          :string           not null
+#  session_token            :string           not null
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  band_name                :string           default("Your Band Name"), not null
+#  bio                      :text
+#  artist_pic_file_name     :string
+#  artist_pic_content_type  :string
+#  artist_pic_file_size     :integer
+#  artist_pic_updated_at    :datetime
+#  band_header_file_name    :string
+#  band_header_content_type :string
+#  band_header_file_size    :integer
+#  band_header_updated_at   :datetime
+#
+
 # User model for artists on Grandcamp
 class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
