@@ -4,6 +4,13 @@ import { Link } from 'react-router';
 class AlbumPage extends React.Component {
   constructor (props) {
     super(props);
+
+    this.state = {
+      time: 0
+    };
+
+    this.playAudio = this.playAudio.bind(this);
+    this.pauseAudio = this.pauseAudio.bind(this);
   }
 
   componentDidMount() {
@@ -41,10 +48,22 @@ class AlbumPage extends React.Component {
       );
     }
   }
+
+  playAudio (e) {
+    document.getElementById('player').play();
+  }
+
+  pauseAudio () {
+    document.getElementById('player').pause();
+  }
+
+  showTime () {
+
+  }
   // <Link to={ `/artist/${ this.props.album.artist_id }` } onClick={ this.props.destroyAlbum(this.props.album.id) }><p>Delete Album</p></Link>
 
   render () {
-    if (this.props.album) {
+    if (this.props.album && this.props.album.songs) {
       return(
         <div className="album-content-container group">
           <header className="artist-header-image"><img src={ this.props.artist.band_header } /></header>
@@ -53,6 +72,12 @@ class AlbumPage extends React.Component {
               <h2>{ this.props.album.title }</h2>
               <h3>by <strong>{ this.props.artist.band_name }</strong></h3>
               { this.EditButtons() }
+              <audio id='player' src={ `${ this.props.album.songs[0].file }` } timeUpdate={ this.showTime } preload="auto"></audio>
+              <div>
+                <button className="play" onClick={ this.playAudio }>Play</button>
+                <button className="play" onClick={ this.pauseAudio }>Pause</button>
+                <p>{ this.state.time }</p>
+              </div>
             </section>
             <section className="album-art-container">
               <div className="art-container"><img src={ this.props.album.album_art }/></div>

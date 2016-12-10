@@ -32,6 +32,7 @@ class AlbumForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.addSongForm = this.addSongForm.bind(this);
+    this.removeSongForm = this.removeSongForm.bind(this);
   }
 
   componentDidMount() {
@@ -94,7 +95,7 @@ class AlbumForm extends React.Component {
       //   formData.append(`album[songs_attributes][${i}][${ key.slice(4).toLowerCase() }]`, songs[i]);
       // }
     }
-    debugger
+    
     this.props.processForm(formData, this.redirect.bind(this), null, parseInt(this.props.params.albumId));
   }
 
@@ -108,7 +109,7 @@ class AlbumForm extends React.Component {
 
   songForm() {
     return(
-      <div>
+      <li key={ this.state.trackCount }>
         <p>Track { this.state.trackCount }</p>
         <label><p>Title</p>
           <input
@@ -128,14 +129,20 @@ class AlbumForm extends React.Component {
             type='file'
             onChange={ this.updateFile }/>
         </label>
-      </div>
+      </li>
     );
   }
 
-  addSongForm(e) {
+  addSongForm() {
     let newForms = this.state.trackForms;
     newForms.push(this.songForm());
     this.setState({ trackForms: newForms, trackCount: this.state.trackCount + 1 });
+  }
+
+  removeSongForm() {
+    let oldForms = this.state.trackForms;
+    oldForms.pop();
+    this.setState({ trackForms: oldForms, trackCount: this.state.trackCount - 1});
   }
 
   render () {
@@ -173,9 +180,10 @@ class AlbumForm extends React.Component {
               onChange={this.updateState}/>
           </label>
           <a onClick={ this.addSongForm }>+Add Song+</a>
-          <ul className="trackForms">
+          <ul className="trackForms group">
             { this.state.trackForms }
           </ul>
+          <a onClick={ this.removeSongForm }>-Remove Song-</a>
           <br></br>
           <Alerts errors={ this.props.errors }/>
           <button type="submit">Submit</button>

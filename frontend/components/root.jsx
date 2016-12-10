@@ -8,6 +8,7 @@ import ArtistPageContainer from './artist/artist_page/artist_page_container';
 import ArtistFormContainer from './artist/artist_form/artist_form_container';
 import AlbumPageContainer from './album/album_page/album_page_container';
 import AlbumFormContainer from './album/album_form/album_form_container';
+import Splash from './splash/splash';
 
 const Root = ({ store }) => {
 
@@ -29,6 +30,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path='/' component={ App }>
+          <IndexRoute component={ Splash } />
           <Route
             path='/login'
             component={ SessionFormContainer }
