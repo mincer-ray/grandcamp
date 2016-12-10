@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  before_action :ensure_logged_in, only: [:update]
+
   def create
     @user = User.new(user_params)
 
@@ -22,7 +24,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    
+
     # TODO: add before action
     if current_user == @user && @user.update(artist_params)
       render 'api/artists/show'
@@ -40,4 +42,6 @@ class Api::UsersController < ApplicationController
   def artist_params
     params.require(:artist).permit(:band_name, :bio, :artist_pic, :band_header)
   end
+
+  def ensure_logged_in; end
 end

@@ -37,10 +37,20 @@ const Root = ({ store }) => {
             path='/signup'
             component={ SessionFormContainer }
             onEnter={ _redirectIfLoggedIn } />
-          <Route path='/artist/:artistId' component={ ArtistPageContainer }/>
-          <Route path='/album/:albumId' component={ AlbumPageContainer } />
-          <Route path='/album/:albumId/edit' component={ AlbumFormContainer } />
-          <Route path='/new-album' component={ AlbumFormContainer } />
+          <Route
+            path='/artist/:artistId'
+            component={ ArtistPageContainer } />
+          <Route
+            path='/album/:albumId'
+            component={ AlbumPageContainer } />
+          <Route
+            path='/album/:albumId/edit'
+            component={ AlbumFormContainer }
+            onEnter={ _ensureLoggedIn } />
+          <Route
+            path='/new-album'
+            component={ AlbumFormContainer }
+            onEnter={ _ensureLoggedIn } />
           <Route
             path='/edit-artist'
             component={ ArtistFormContainer }

@@ -89,7 +89,7 @@ class AlbumForm extends React.Component {
           formData.append(`album[songs_attributes][${ id }][${ type }]`, this.state[key]);
         }
       }
-
+      // Song Form Test Code
       // for (var i = 0; i < songs.length; i++) {
       //   formData.append(`album[songs_attributes][${i}][${ key.slice(4).toLowerCase() }]`, songs[i]);
       // }
