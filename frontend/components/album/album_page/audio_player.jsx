@@ -15,16 +15,18 @@ class AudioPlayer extends React.Component {
   }
 
   componentDidMount () {
-    this.state = {
-      audio: document.getElementById('audio-file'),
-      seek: document.getElementById('seek'),
-      duration: document.getElementById('audio-file').duration,
-      currentTime: 0,
-      playing: false,
-      buttonClass: "play-btn play"
-    };
+    if (this.props.songs.length > 0 ) {
+      this.state = {
+        audio: document.getElementById('audio-file'),
+        seek: document.getElementById('seek'),
+        duration: document.getElementById('audio-file').duration,
+        currentTime: 0,
+        playing: false,
+        buttonClass: "play-btn play"
+      };
 
-    this.state.audio.addEventListener('timeupdate', this.timeUpdate);
+      this.state.audio.addEventListener('timeupdate', this.timeUpdate);
+    }
   }
 
   playPause (e) {
@@ -55,19 +57,23 @@ class AudioPlayer extends React.Component {
   }
 
   render () {
-    return(
-      <div className="player-container group">
-        <div className="seek-container">
-          <p>{ this.props.songs[0].title } { this.timeTracker() }</p>
-          <audio id="audio-file" src={ `${ this.props.songs[0].file }` }></audio>
-          <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
+    if (this.props.songs.length > 0){
+      return(
+        <div className="player-container group">
+          <div className="seek-container">
+            <p>{ this.props.songs[0].title } { this.timeTracker() }</p>
+            <audio id="audio-file" src={ `${ this.props.songs[0].file }` }></audio>
+            <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
+          </div>
+          <div className="button-container">
+            <div className={ this.state.buttonClass } onClick={ this.playPause }/>
+          </div>
+          <br></br>
         </div>
-        <div className="button-container">
-          <div className={ this.state.buttonClass } onClick={ this.playPause }/>
-        </div>
-        <br></br>
-      </div>
-    );
+      );
+    } else {
+      return(<div></div>);
+    }
   }
 }
 

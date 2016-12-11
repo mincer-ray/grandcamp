@@ -14,20 +14,20 @@ bio: "Best sample bio ever and I have to make sure that its a little long so it 
 guest.save!
 guest = User.first
 album = guest.albums.new(
-title: "albut 1",
-description: "not a password")
+title: "Only song album",
+description: "def got a song")
 
 album.save!
 
 album = guest.albums.new(
-title: "albut 4fdd",
+title: "other album",
 description: "description")
 
 album.save!
 
 album = guest.albums.new(
 title: "Robot dump",
-description: "afgg")
+description: "description")
 
 album.save!
 
