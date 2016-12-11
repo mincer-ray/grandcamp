@@ -30,7 +30,7 @@ class SessionForm extends React.Component {
   }
 
   redirect() {
-    this.props.router.push("/");
+    this.props.router.push(`/artist/${ this.props.userId }`);
   }
 
   guest() {

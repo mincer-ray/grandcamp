@@ -4,7 +4,13 @@ import { clearErrors } from '../../actions/error_actions';
 import SessionForm from './session_form';
 
 function mapStateToProps(state) {
+  let userId = "";
+  if (state.session.currentUser) {
+    userId = state.session.currentUser.id;
+  }
+
   return ({
+    userId,
     loggedIn: !!state.session.currentUser,
     errors: state.errors
   });

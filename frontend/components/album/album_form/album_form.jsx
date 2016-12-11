@@ -33,6 +33,7 @@ class AlbumForm extends React.Component {
     this.updateFile = this.updateFile.bind(this);
     this.addSongForm = this.addSongForm.bind(this);
     this.removeSongForm = this.removeSongForm.bind(this);
+    this.deleteAlbum = this.deleteAlbum.bind(this);
   }
 
   componentDidMount() {
@@ -95,12 +96,14 @@ class AlbumForm extends React.Component {
       //   formData.append(`album[songs_attributes][${i}][${ key.slice(4).toLowerCase() }]`, songs[i]);
       // }
     }
-    
-    this.props.processForm(formData, this.redirect.bind(this), null, parseInt(this.props.params.albumId));
+
+    this.props.processForm(formData, null, null, parseInt(this.props.params.albumId)).then(
+      () => this.redirect()
+    );
   }
 
   redirect() {
-    this.props.router.push(`/album/${ this.props.album.id }`);
+    this.props.router.push(`/artist/${ this.props.userId }`);
   }
 
   updateState(e) {
@@ -145,11 +148,15 @@ class AlbumForm extends React.Component {
     this.setState({ trackForms: oldForms, trackCount: this.state.trackCount - 1});
   }
 
+  deleteAlbum() {
+    this.props.destroyAlbum(this.state.id).then(() => this.redirect());
+  }
+
   render () {
     return(
       <main className="form-content">
         <section className="form group album">
-        <h2>{ this.props.formType }</h2>
+        <h2>{ this.props.formType } <strong className="danger" onClick={ this.deleteAlbum }>delete album</strong></h2>
         <form onSubmit={ this.handleSubmit }>
           <label><p>Album Title</p>
             <input

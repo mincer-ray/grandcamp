@@ -66,6 +66,13 @@
   color: red;
   padding-bottom: 10px;
 }
+
+.danger {
+  font-size: 10px;
+  color: red;
+  cursor: not-allowed;
+}
+
 .form .guest {
   padding: 10px;
   margin-left: 20px;
