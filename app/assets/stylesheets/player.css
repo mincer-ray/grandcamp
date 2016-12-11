@@ -42,12 +42,23 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 54px;
 }
 
-.play-btn:after {
+.play:after {
   content: "";
   display: block;
   border-top: 11px solid transparent;
   border-bottom: 11px solid transparent;
   border-left: 20px solid #222;
+  margin-top: 14px;
+  margin-left: 18px;
+}
+
+.pause:after {
+  content: "";
+  display: block;
+  height: 22px;
+  width: 4px;
+  border-left: 7px solid #222;
+  border-right: 7px solid #222;
   margin-top: 14px;
   margin-left: 18px;
 }

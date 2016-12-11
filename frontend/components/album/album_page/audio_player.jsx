@@ -4,6 +4,10 @@ class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      buttonClass: ""
+    };
+
     this.playPause = this.playPause.bind(this);
     this.showRange = this.showRange.bind(this);
     this.timeUpdate = this.timeUpdate.bind(this);
@@ -16,7 +20,8 @@ class AudioPlayer extends React.Component {
       seek: document.getElementById('seek'),
       duration: document.getElementById('audio-file').duration,
       currentTime: 0,
-      playing: false
+      playing: false,
+      buttonClass: "play-btn play"
     };
 
     this.state.audio.addEventListener('timeupdate', this.timeUpdate);
@@ -25,10 +30,10 @@ class AudioPlayer extends React.Component {
   playPause (e) {
     if (this.state.playing){
       this.state.audio.pause();
-      this.setState({playing: false});
+      this.setState({playing: false, buttonClass: "play-btn play"});
     } else {
       this.state.audio.play();
-      this.setState({playing: true});
+      this.setState({playing: true, buttonClass: "play-btn pause"});
     }
   }
 
@@ -58,7 +63,7 @@ class AudioPlayer extends React.Component {
           <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
         </div>
         <div className="button-container">
-          <div className="play-btn" onClick={ this.playPause }/>
+          <div className={ this.state.buttonClass } onClick={ this.playPause }/>
         </div>
         <br></br>
       </div>
