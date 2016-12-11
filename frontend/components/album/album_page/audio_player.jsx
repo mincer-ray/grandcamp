@@ -58,8 +58,8 @@ class AudioPlayer extends React.Component {
     return(
       <div className="player-container group">
         <div className="seek-container">
-          <p>{ this.props.song.title } { this.timeTracker() }</p>
-          <audio id="audio-file" src={ `${ this.props.song.file }` }></audio>
+          <p>{ this.props.songs[0].title } { this.timeTracker() }</p>
+          <audio id="audio-file" src={ `${ this.props.songs[0].file }` }></audio>
           <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
         </div>
         <div className="button-container">

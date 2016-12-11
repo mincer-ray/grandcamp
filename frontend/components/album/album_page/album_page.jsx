@@ -59,7 +59,7 @@ class AlbumPage extends React.Component {
               <h2>{ this.props.album.title }</h2>
               <h3>by <strong>{ this.props.artist.band_name }</strong></h3>
               { this.EditButtons() }
-              <AudioPlayer song={this.props.album.songs[0] }/>
+              <AudioPlayer songs={this.props.album.songs }/>
             </section>
             <section className="album-art-container">
               <div className="art-container"><img src={ this.props.album.album_art }/></div>
