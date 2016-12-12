@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import AudioPlayer from './audio_player';
+import { songList } from '../../../reducers/selectors';
 
 class AlbumPage extends React.Component {
   constructor (props) {
@@ -55,11 +56,11 @@ class AlbumPage extends React.Component {
         <div className="album-content-container group">
           <header className="artist-header-image"><img src={ this.props.artist.band_header } /></header>
           <main className="album-content group">
-            <section className="album-play-container">
+            <section className="album-play-container group">
               <h2>{ this.props.album.title }</h2>
               <h3>by <strong>{ this.props.artist.band_name }</strong></h3>
               { this.EditButtons() }
-              <AudioPlayer songs={this.props.album.songs }/>
+              <AudioPlayer songs={ songList(this.props.album.songs) }/>
             </section>
             <section className="album-art-container">
               <div className="art-container"><img src={ this.props.album.album_art }/></div>

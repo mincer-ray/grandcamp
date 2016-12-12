@@ -76,3 +76,17 @@ input[type=range]::-webkit-slider-runnable-track {
 .button-container {
   float: left;
 }
+
+.song-list-container {
+  margin-top: 20px;
+  margin-left: 16px;
+  display: block;
+}
+
+.song-list {
+  list-style: decimal;
+
+  li {
+    margin-bottom: 10px;
+  }
+}

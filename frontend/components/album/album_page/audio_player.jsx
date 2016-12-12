@@ -5,24 +5,35 @@ class AudioPlayer extends React.Component {
     super(props);
 
     this.state = {
-      buttonClass: ""
+      buttonClass: "",
+      title: "",
+      songFile: "",
+      playing: false,
+      currentTime: 0,
+      buttonClass: "play-btn play",
+      songs: {}
     };
 
     this.playPause = this.playPause.bind(this);
     this.showRange = this.showRange.bind(this);
     this.timeUpdate = this.timeUpdate.bind(this);
     this.timeTracker = this.timeTracker.bind(this);
+    this.playSong = this.playSong.bind(this);
   }
 
   componentDidMount () {
-    if (this.props.songs.length > 0 ) {
+    if (Object.keys(this.props.songs).length > 0 ) {
       this.state = {
+        songs: this.props.songs,
         audio: document.getElementById('audio-file'),
         seek: document.getElementById('seek'),
         duration: document.getElementById('audio-file').duration,
-        currentTime: 0,
         playing: false,
-        buttonClass: "play-btn play"
+        currentTime: 0,
+        buttonClass: "play-btn play",
+        currentTrack: 1,
+        currentSong: this.props.songs[1].file,
+        trackListing: {}
       };
 
       this.state.audio.addEventListener('timeupdate', this.timeUpdate);
@@ -56,24 +67,49 @@ class AudioPlayer extends React.Component {
     }
   }
 
-  render () {
-    if (this.props.songs.length > 0){
+  SongList () {
+    // if (Object.keys(this.state.songs).length > 0) {
       return(
-        <div className="player-container group">
-          <div className="seek-container">
-            <p>{ this.props.songs[0].title } { this.timeTracker() }</p>
-            <audio id="audio-file" src={ `${ this.props.songs[0].file }` }></audio>
-            <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
+        Object.keys(this.state.songs).map((trackNum) => {
+          return(<li
+            id={ trackNum }
+            onClick={ (e) => this.playSong(e) }>{ this.state.songs[trackNum].title }</li>);
+        })
+      );
+    // }
+  }
+
+  playSong (e) {
+    this.setState({ currentSong: this.state.songs[parseInt(e.currentTarget.id)].file });
+    this.timeUpdate();
+    this.state.audio.play();
+  }
+
+  render () {
+    // if (this.props.songs.length > 0){
+      return(
+        <div className="album-page-left">
+          <div className="player-container group">
+            <div className="seek-container group">
+              <p>{ this.state.title } { this.timeTracker() }</p>
+              <audio id="audio-file" src={ `${ this.state.currentSong }` }></audio>
+              <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
+            </div>
+            <div className="button-container group">
+              <div className={ this.state.buttonClass } onClick={ this.playPause }/>
+            </div>
+            <br></br>
           </div>
-          <div className="button-container">
-            <div className={ this.state.buttonClass } onClick={ this.playPause }/>
+          <div className="song-list-container group">
+            <ol className="song-list">
+              { this.SongList() }
+            </ol>
           </div>
-          <br></br>
         </div>
       );
-    } else {
-      return(<div></div>);
-    }
+    // } else {
+    //   return(<div></div>);
+    // }
   }
 }
 
