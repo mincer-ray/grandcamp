@@ -98,12 +98,16 @@ class AudioPlayer extends React.Component {
             <div className="button-container group">
               <div className={ this.state.buttonClass } onClick={ this.playPause }/>
             </div>
-            <br></br>
           </div>
           <div className="song-list-container group">
             <ol className="song-list">
               { this.SongList() }
             </ol>
+          </div>
+          <div>
+            <p>{ this.props.album.description }</p>
+            <br></br>
+            <p>released { Date.parse(this.props.album.date) }</p>
           </div>
         </div>
       );
