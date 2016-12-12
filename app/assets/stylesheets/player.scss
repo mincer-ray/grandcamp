@@ -85,8 +85,55 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .song-list {
   list-style: decimal;
+  margin-left: 30px;
 
   li {
+    position: relative;
+    cursor: pointer;
     margin-bottom: 10px;
+    float: left;
   }
+
+  li:before {
+    position: absolute;
+    top: -2px;
+    left: -46px;
+    content: "";
+    display: block;
+    background: white;
+    border: 1px solid #848484;
+    border-radius: 2px;
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    width: 17px;
+  }
+
+  li:after {
+    position: absolute;
+    top: 3px;
+    left: -39px;
+    content: "";
+    display: block;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 7px solid #222;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+.download-link {
+  display: none;
+  cursor: pointer;
+  float: right;
+}
+
+.song-li-container:hover .download-link {
+  display: block;
+}
+
+.album-description {
+  display: block;
+  width: 322px;
 }

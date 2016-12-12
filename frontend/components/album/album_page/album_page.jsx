@@ -37,8 +37,8 @@ class AlbumPage extends React.Component {
   EditButtons () {
     if ( this.props.currentUser.id === this.props.album.artist_id ) {
       return(
-        <div>
-          <Link to={ `/album/${ this.props.album.id }/edit` } onClick={ this.props.clearErrors }><p>Edit Album</p></Link>
+        <div className="edit-button">
+          <Link to={ `/album/${ this.props.album.id }/edit` } onClick={ this.props.clearErrors }><p>Edit</p></Link>
         </div>
       );
     } else {
@@ -58,7 +58,7 @@ class AlbumPage extends React.Component {
           <main className="album-content group">
             <section className="album-play-container group">
               <h2>{ this.props.album.title }</h2>
-              <h3>by <strong>{ this.props.artist.band_name }</strong></h3>
+              <h3>by <strong className="artist-name">{ this.props.artist.band_name }</strong></h3>
               { this.EditButtons() }
               <AudioPlayer songs={ songList(this.props.album.songs) } album={ this.props.album }/>
             </section>

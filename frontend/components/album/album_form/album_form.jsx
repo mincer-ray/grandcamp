@@ -34,6 +34,7 @@ class AlbumForm extends React.Component {
     this.addSongForm = this.addSongForm.bind(this);
     this.removeSongForm = this.removeSongForm.bind(this);
     this.deleteAlbum = this.deleteAlbum.bind(this);
+    this.deleteAlbumButton = this.deleteAlbumButton.bind(this);
   }
 
   componentDidMount() {
@@ -148,7 +149,21 @@ class AlbumForm extends React.Component {
     this.setState({ trackForms: oldForms, trackCount: this.state.trackCount - 1});
   }
 
-  deleteAlbum() {
+  deleteAlbumButton() {
+    if (this.props.formType === "New Album") {
+      return(
+        <h2>{ this.props.formType }</h2>
+      );
+    } else {
+      return(
+        <h2>{ this.props.formType } <strong
+          className="danger"
+          onClick={ this.deleteAlbum }>delete album</strong></h2>
+      );
+    }
+  }
+
+  deleteAlbum () {
     this.props.destroyAlbum(this.state.id).then(() => this.redirect());
   }
 
@@ -156,7 +171,7 @@ class AlbumForm extends React.Component {
     return(
       <main className="form-content">
         <section className="form group album">
-        <h2>{ this.props.formType } <strong className="danger" onClick={ this.deleteAlbum }>delete album</strong></h2>
+        { this.deleteAlbumButton() }
         <form onSubmit={ this.handleSubmit }>
           <label><p>Album Title</p>
             <input
