@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
+import { runSearch } from '../../actions/search_actions';
+import { resultsArray } from '../../reducers/selectors';
 import Splash from './splash';
 
-function mapStateToProps({ session }) {
+function mapStateToProps(state) {
   return ({
-    currentUser: session.currentUser
+    results: resultsArray(state.results),
+    currentUser: state.session.currentUser
   });
 }
 
@@ -12,6 +15,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   return ({
     dispatch,
     logout: () => dispatch(logout()),
+    runSearch: (query) => dispatch(runSearch(query)),
   });
 }
 
