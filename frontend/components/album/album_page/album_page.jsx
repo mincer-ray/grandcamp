@@ -54,7 +54,11 @@ class AlbumPage extends React.Component {
     if (this.props.album && this.props.album.songs) {
       return(
         <div className="album-content-container group">
-          <header className="artist-header-image"><img src={ this.props.artist.band_header } /></header>
+          <header className="artist-header-image">
+            <Link to={ `/artist/${ this.props.artist.id }` }>
+              <img src={ this.props.artist.band_header } />
+            </Link>
+          </header>
           <main className="album-content group">
             <section className="album-play-container group">
               <h2>{ this.props.album.title }</h2>
