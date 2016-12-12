@@ -114,6 +114,31 @@
   }
 }
 
+.logged-out {
+  font-size: 12px;
+  position:relative;
+  float: right;
+  color: #7e40a3;
+
+  .nav-links {
+    float: right;
+    top: 44px;
+    right: 0;
+
+    li {
+      float: right;
+      padding: 15px 11px;
+      padding-bottom: 17px;
+      background: #ddd;
+      cursor: pointer;
+    }
+
+    li:hover{
+      background: #bbb;
+    }
+  }
+}
+
 .logged-in:hover .nav-links{
   display: block;
 }

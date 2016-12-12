@@ -10,11 +10,10 @@ class AlbumForm extends React.Component {
         id: this.props.album.id,
         title: this.props.album.title,
         description: this.props.album.description,
-        date: this.props.date,
+        date: this.props.album.date,
         album_art: this.props.album_art,
         trackCount: 1,
-        trackForms: [],
-        songs: []
+        trackForms: []
       };
     } else {
       this.state = {
@@ -64,19 +63,8 @@ class AlbumForm extends React.Component {
     }
   }
 
-  parseSongData() {
-    let parsedState = {};
-
-    for (var key in this.state) {
-      if (key.slice(0, 4) === "song") {
-
-      }
-    }
-  }
-
   handleSubmit(e) {
     var formData = new FormData();
-    var songs = [this.state.song, this.state.song2];
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
     formData.append("album[date]", this.state.date);
@@ -92,10 +80,6 @@ class AlbumForm extends React.Component {
           formData.append(`album[songs_attributes][${ id }][${ type }]`, this.state[key]);
         }
       }
-      // Song Form Test Code
-      // for (var i = 0; i < songs.length; i++) {
-      //   formData.append(`album[songs_attributes][${i}][${ key.slice(4).toLowerCase() }]`, songs[i]);
-      // }
     }
 
     this.props.processForm(formData, null, null, parseInt(this.props.params.albumId)).then(
@@ -217,11 +201,3 @@ class AlbumForm extends React.Component {
 }
 
 export default AlbumForm;
-
-// <label><p>Song2</p>
-//   <input
-//     className='inputfile'
-//     id='song2'
-//     type='file'
-//     onChange={this.updateFile}/>
-// </label>

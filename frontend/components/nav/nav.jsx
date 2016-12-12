@@ -33,10 +33,12 @@ class Nav extends React.Component {
       );
     } else {
       return(
-        <ul className="nav-links">
-          <Link to='/login' onClick={ this.props.clearErrors }><li>log in</li></Link>
-          <Link to='/signup' onClick={ this.props.clearErrors }><li>sign up</li></Link>
-        </ul>
+        <div className="logged-out">
+          <ul className="nav-links">
+            <Link to='/login' onClick={ this.props.clearErrors }><li>log in</li></Link>
+            <Link to='/signup' onClick={ this.props.clearErrors }><li>sign up</li></Link>
+          </ul>
+        </div>
       );
     }
   }

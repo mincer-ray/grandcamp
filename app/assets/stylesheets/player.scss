@@ -129,6 +129,10 @@ input[type=range]::-webkit-slider-runnable-track {
   float: right;
 }
 
+.download-link:hover {
+  text-decoration: underline;
+}
+
 .song-li-container:hover .download-link {
   display: block;
 }

@@ -18,6 +18,7 @@ class AudioPlayer extends React.Component {
     this.timeTracker = this.timeTracker.bind(this);
     this.playSong = this.playSong.bind(this);
     this.downloadSong = this.downloadSong.bind(this);
+    this.autoPlay = this.autoPlay.bind(this);
   }
 
   componentDidMount () {
@@ -37,6 +38,7 @@ class AudioPlayer extends React.Component {
       };
 
       this.state.audio.addEventListener('timeupdate', this.timeUpdate);
+      this.state.audio.addEventListener('loadeddata', this.autoPlay);
     }
   }
 
@@ -57,6 +59,11 @@ class AudioPlayer extends React.Component {
   timeUpdate () {
     this.state.seek.value = this.state.audio.currentTime / this.state.audio.duration * 100;
     this.setState({currentTime: this.state.audio.currentTime, duration: this.state.audio.duration });
+    if (this.state.playing){
+      this.setState({playing: true, buttonClass: "play-btn pause"});
+    } else {
+      this.setState({playing: false, buttonClass: "play-btn play"});
+    }
   }
 
   timeTracker () {
@@ -116,12 +123,18 @@ class AudioPlayer extends React.Component {
     this.setState({
       currentSong: this.state.songs[parseInt(e.currentTarget.id)].file,
       title: this.state.songs[parseInt(e.currentTarget.id)].title,
-      playing: false,
+      playing: true,
       currentTime: 0
     });
+    this.state.audio.src = this.state.currentSong;
     this.state.seek.value = 0;
-    this.timeUpdate();
-    this.playPause();
+    this.state.audio.load();
+  }
+
+  autoPlay () {
+    if (this.state.playing) {
+      this.state.audio.play();
+    }
   }
 
   render () {
