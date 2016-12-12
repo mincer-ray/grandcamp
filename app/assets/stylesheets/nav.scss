@@ -13,6 +13,7 @@
   display: block;
   padding: 15px 10px;
   float: left;
+  cursor: pointer;
 }
 
 .logo:hover {
@@ -44,18 +45,46 @@
   float: right;
   color: #7e40a3;
 
+  .mini-pic {
+    // position: absolute;
+    box-sizing: border-box;
+    // top: 10px;
+    // left: -23px;
+    float: left;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid transparent;
+
+    img {
+      box-sizing: border-box;
+      height: 100%;
+    }
+  }
+
+  .dropdown-name {
+    position: absolute;
+    top: 16px;
+    left: 47px;
+    white-space: nowrap;
+  }
+
   .dropdown-anchor {
     float: right;
     font-weight: bold;
-    padding: 15px 11px;
-    padding-bottom: 17px;
+    padding: 9px 11px;
+    padding-right: 130px;
+    padding-bottom: 10px;
     cursor: pointer;
     position: relative;
   }
 
   .dropdown-anchor:hover {
-    display: block;
     background: #bbb;
+  }
+
+  .dropdown-anchor:hover .mini-pic {
+    border: 1px solid white;
   }
 
   .nav-links {

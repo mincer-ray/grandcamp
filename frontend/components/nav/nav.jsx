@@ -16,7 +16,13 @@ class Nav extends React.Component {
     if ( this.props.currentUser != undefined ) {
       return(
         <div className="logged-in">
-          <a className="dropdown-anchor">{ this.props.currentUser.band_name }</a>
+          <a className="dropdown-anchor">
+            <div className="mini-pic">
+              <img src={ this.props.currentUser.artist_pic }/>
+            </div>
+            <div className="dropdown-name">
+              { this.props.currentUser.band_name }
+            </div></a>
           <ul className="nav-links">
             <Link to={ `/artist/${this.props.currentUser.id}` }><li>Home</li></Link>
             <Link to='/edit-artist' onClick={ this.props.clearErrors }><li>Edit</li></Link>
