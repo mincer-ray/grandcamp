@@ -19,6 +19,8 @@ class AudioPlayer extends React.Component {
     this.playSong = this.playSong.bind(this);
     this.downloadSong = this.downloadSong.bind(this);
     this.autoPlay = this.autoPlay.bind(this);
+    this.nextTrack = this.nextTrack.bind(this);
+    this.prevTrack = this.prevTrack.bind(this);
   }
 
   componentDidMount () {
@@ -64,6 +66,10 @@ class AudioPlayer extends React.Component {
     } else {
       this.setState({playing: false, buttonClass: "play-btn play"});
     }
+
+    if (this.state.audio.ended) {
+      this.nextTrack();
+    }
   }
 
   timeTracker () {
@@ -75,6 +81,9 @@ class AudioPlayer extends React.Component {
   }
 
   padTime (time) {
+    if (time === undefined) {
+      return "00:00";
+    }
     let secondsPad = "";
     let minutesPad = "";
     let seconds = Math.floor(time);
@@ -124,7 +133,8 @@ class AudioPlayer extends React.Component {
       currentSong: this.state.songs[parseInt(e.currentTarget.id)].file,
       title: this.state.songs[parseInt(e.currentTarget.id)].title,
       playing: true,
-      currentTime: 0
+      currentTime: 0,
+      currentTrack: parseInt(e.currentTarget.id)
     });
     this.state.audio.src = this.state.currentSong;
     this.state.seek.value = 0;
@@ -137,35 +147,47 @@ class AudioPlayer extends React.Component {
     }
   }
 
+  nextTrack () {
+    if (Object.keys(this.state.songs).length > this.state.currentTrack){
+      this.playSong({currentTarget: {id: this.state.currentTrack + 1}});
+    }
+  }
+
+  prevTrack () {
+    if (this.state.currentTrack > 1) {
+      this.playSong({currentTarget: {id: this.state.currentTrack - 1}});
+    }
+  }
+
   render () {
-    // if (this.props.songs.length > 0){
-      return(
-        <div className="album-page-left">
-          <div className="player-container group">
-            <div className="seek-container group">
-              <p>{ this.state.title } { this.timeTracker() }</p>
-              <audio id="audio-file" src={ `${ this.state.currentSong }` }></audio>
-              <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
-            </div>
-            <div className="button-container group">
-              <div className={ this.state.buttonClass } onClick={ this.playPause }/>
+    return(
+      <div className="album-page-left">
+        <div className="player-container group">
+          <div className="seek-container group">
+            <p>{ this.state.title } { this.timeTracker() }</p>
+            <audio id="audio-file" src={ `${ this.state.currentSong }` }></audio>
+            <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
+            <div className="track-control">
+              <div className="prev-track" onClick={ this.prevTrack }/>
+              <div className="next-track" onClick={ this.nextTrack }/>
             </div>
           </div>
-          <div className="song-list-container group">
-            <ol className="song-list group">
-              { this.SongList() }
-            </ol>
-          </div>
-          <div>
-            <p className="album-description">{ this.props.album.description }</p>
-            <br></br>
-            <p>released { this.props.album.date }</p>
+          <div className="button-container group">
+            <div className={ this.state.buttonClass } onClick={ this.playPause }/>
           </div>
         </div>
-      );
-    // } else {
-    //   return(<div></div>);
-    // }
+        <div className="song-list-container group">
+          <ol className="song-list group">
+            { this.SongList() }
+          </ol>
+        </div>
+        <div>
+          <p className="album-description">{ this.props.album.description }</p>
+          <br></br>
+          <p>released { this.props.album.date }</p>
+        </div>
+      </div>
+    );
   }
 }
 

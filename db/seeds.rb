@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# guest = User.new(
-# username: "Best Guest",
-# password: "password",
-# bio: "Best sample bio ever and I have to make sure that its a little long so it wraps")
-#
-# guest.save!
+guest = User.new(
+username: "Best Guest",
+password: "password",
+bio: "Best sample bio ever and I have to make sure that its a little long so it wraps")
+
+guest.save!
 # guest = User.first
 # album = guest.albums.new(
 # title: "Only song album",

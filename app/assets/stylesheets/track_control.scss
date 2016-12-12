@@ -1,0 +1,64 @@
+.track-control {
+  float: right;
+  margin-top: 1px;
+
+  .prev-track {
+    position: relative;
+    float: left;
+    display: block;
+    width: 15px;
+    height: 12px;
+    border-left: 3px solid #222;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
+  .prev-track:before {
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 8px solid #222;
+  }
+
+  .prev-track:after {
+    position: absolute;
+    left: 7px;
+    content: "";
+    display: block;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 8px solid #222;
+  }
+
+  .next-track {
+    position: relative;
+    float: left;
+    display: block;
+    width: 15px;
+    height: 12px;
+    border-right: 3px solid #222;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
+  .next-track:before {
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 8px solid #222;
+  }
+
+  .next-track:after {
+    position: absolute;
+    left: 7px;
+    content: "";
+    display: block;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 8px solid #222;
+  }
+}
