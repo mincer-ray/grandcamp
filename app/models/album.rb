@@ -29,7 +29,7 @@ class Album < ActiveRecord::Base
     foreign_key: :artist_id,
     primary_key: :id
 
-  has_many :songs, inverse_of: :album,
+  has_many :songs, inverse_of: :album, dependent: :destroy,
     class_name: "Song",
     foreign_key: :album_id,
     primary_key: :id

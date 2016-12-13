@@ -9,14 +9,14 @@ class SongForm extends React.Component {
           <input
             id={ `songTitle${ this.props.trackCount }` }
             type='text'
-            value={ this.props.title }
+            defaultValue={ this.props.title }
             onChange={ this.props.updateState }/>
         </label>
         <label><p>Track #</p>
           <input
             id={ `songTrack_Num${ this.props.trackCount }` }
             type='text'
-            value={ this.props.trackNum }
+            defaultValue={ this.props.trackNum }
             onChange={ this.props.updateState }/>
         </label>
         <label><p>Audio File</p>

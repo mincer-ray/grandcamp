@@ -42,6 +42,7 @@ class AlbumForm extends React.Component {
     if (this.formType === "Edit Album") {
       this.props.fetchAlbum(this.props.params.albumId);
     }
+    this.defaultSongForms();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,7 +51,6 @@ class AlbumForm extends React.Component {
         this.props.fetchAlbum(nextProps.params.albumId);
       }
     }
-    this.defaultSongForms();
   }
 
   updateFile (e) {
@@ -102,6 +102,7 @@ class AlbumForm extends React.Component {
   songForm(title, trackNum) {
     return(
       <SongForm
+        key={ `${title}${trackNum}` }
         trackCount={ this.state.trackCount }
         updateState={ this.updateState }
         updateFile={ this.updateFile }
@@ -112,15 +113,18 @@ class AlbumForm extends React.Component {
   }
 
   defaultSongForms () {
-    debugger
     let trackCount = 1;
     let trackForms = this.props.album.songs.map((song) => {
+      this.setState({
+        [`songTitle${trackCount}`]: song.title,
+        [`songTrack_Num${trackCount}`]: song.track_num,
+        [`songId${trackCount}`]: song.id});
       trackCount = trackCount + 1;
       return(
         this.songForm(song.title, song.track_num)
       );
     });
-    debugger
+
     this.setState({ trackForms, trackCount });
   }
 
