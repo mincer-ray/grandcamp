@@ -7,7 +7,6 @@ class AlbumIndex extends React.Component {
   }
 
   render () {
-    debugger
     return (
       <main className="album-index-container">
         <ul>{ this.props.albums.map(album => <li>album.title</li>) }</ul>

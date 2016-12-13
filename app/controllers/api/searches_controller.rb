@@ -3,7 +3,6 @@ class Api::SearchesController < ApplicationController
     users = User.where("band_name ~ ?", search_params[:query])
     albums = Album.where("title ~ ?", search_params[:query])
     songs = Song.where("title ~ ?", search_params[:query]).includes(:album)
-    debugger
     @results = {}
     counter = 1;
 
