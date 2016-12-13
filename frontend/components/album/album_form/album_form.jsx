@@ -104,7 +104,7 @@ class AlbumForm extends React.Component {
   songForm(title, trackNum) {
     return(
       <SongForm
-        key={ this.state.trackCount }
+        key= { `${Math.random()}` }
         trackCount={ this.state.trackCount }
         updateState={ this.updateState }
         updateFile={ this.updateFile }
