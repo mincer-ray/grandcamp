@@ -21,6 +21,7 @@
  *= require player
  *= require track_control
  *= require splash
+ *= require spinner
  */
 
 .group:after {

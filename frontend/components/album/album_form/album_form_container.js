@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createAlbum, updateAlbum, fetchAlbum, destroyAlbum } from '../../../actions/album_actions';
+import { createAlbum, updateAlbum, fetchAlbum, destroyAlbum, creatingAlbum } from '../../../actions/album_actions';
 import AlbumForm from './album_form';
 
 function mapStateToProps(state, { params }) {
@@ -8,7 +8,8 @@ function mapStateToProps(state, { params }) {
     userId: state.session.currentUser.id,
     albumId,
     album: state.albums[albumId],
-    errors: state.errors
+    errors: state.errors,
+    loading: state.loading
   });
 }
 
@@ -29,7 +30,8 @@ function mapDispatchToProps(dispatch, ownProps) {
     processForm: (album, success, failure, id) => dispatch(func(album, success, failure, id)),
     fetchAlbum: (id) => dispatch(fetchAlbum(id)),
     clearErrors: () => dispatch(clearErrors()),
-    destroyAlbum: (id) => dispatch(destroyAlbum(id))
+    destroyAlbum: (id) => dispatch(destroyAlbum(id)),
+    creatingAlbum: () => dispatch(creatingAlbum())
   });
 }
 

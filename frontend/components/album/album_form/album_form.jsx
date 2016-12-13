@@ -81,7 +81,7 @@ class AlbumForm extends React.Component {
         }
       }
     }
-
+    this.props.creatingAlbum();
     this.props.processForm(formData, null, null, parseInt(this.props.params.albumId)).then(
       () => this.redirect()
     );
@@ -152,51 +152,57 @@ class AlbumForm extends React.Component {
   }
 
   render () {
-    return(
-      <main className="form-content">
-        <section className="form group album">
-        { this.deleteAlbumButton() }
-        <form onSubmit={ this.handleSubmit }>
-          <label><p>Album Title</p>
-            <input
-              id="title"
-              type="text"
-              onChange={ this.updateState }
-              value={ this.state.title }/>
-          </label>
-          <label><p>Description</p>
-            <textarea
-              id="description"
-              onChange={ this.updateState }
-              defaultValue={ this.state.description }>
-            </textarea>
-          </label>
-          <label><p>Album Art</p>
-            <input
-              className="inputfile"
-              id="album_art"
-              type="file"
-              onChange={this.updateFile}/>
-          </label>
-          <label><p>Release Date</p>
-            <input
-              id="date"
-              type="date"
-              value={ this.state.date }
-              onChange={this.updateState}/>
-          </label>
-          <a onClick={ this.addSongForm }>+Add Song+</a>
-          <ul className="trackForms group">
-            { this.state.trackForms }
-          </ul>
-          <a onClick={ this.removeSongForm }>-Remove Song-</a>
-          <br></br>
-          <Alerts errors={ this.props.errors }/>
-          <button type="submit">Submit</button>
-        </form>
-        </section>
-      </main>
-    );
+    if (this.props.loading) {
+      return (
+        <div className="loader">Loading...</div>
+      );
+    } else {
+      return(
+        <main className="form-content">
+          <section className="form group album">
+          { this.deleteAlbumButton() }
+          <form onSubmit={ this.handleSubmit }>
+            <label><p>Album Title</p>
+              <input
+                id="title"
+                type="text"
+                onChange={ this.updateState }
+                value={ this.state.title }/>
+            </label>
+            <label><p>Description</p>
+              <textarea
+                id="description"
+                onChange={ this.updateState }
+                defaultValue={ this.state.description }>
+              </textarea>
+            </label>
+            <label><p>Album Art</p>
+              <input
+                className="inputfile"
+                id="album_art"
+                type="file"
+                onChange={this.updateFile}/>
+            </label>
+            <label><p>Release Date</p>
+              <input
+                id="date"
+                type="date"
+                value={ this.state.date }
+                onChange={this.updateState}/>
+            </label>
+            <a onClick={ this.addSongForm }>+Add Song+</a>
+            <ul className="trackForms group">
+              { this.state.trackForms }
+            </ul>
+            <a onClick={ this.removeSongForm }>-Remove Song-</a>
+            <br></br>
+            <Alerts errors={ this.props.errors }/>
+            <button className="album-submit-button" type="submit">Submit</button>
+          </form>
+          </section>
+        </main>
+      );
+    }
   }
 }
 

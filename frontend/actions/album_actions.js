@@ -3,6 +3,7 @@ import { receiveErrors } from './error_actions';
 
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 export const RECEIVE_ALL_ALBUMS = "RECEIVE_ALL_ALBUMS";
+export const CREATE_ALBUM = "CREATE_ALBUM";
 
 export const fetchAlbum = (albumId) => {
   return (dispatch) => {
@@ -49,6 +50,10 @@ export const updateAlbum = (album, success, failure, id) => {
     );
   };
 };
+
+export const creatingAlbum = () => ({
+  type: CREATE_ALBUM
+});
 
 export const receiveAlbum = album => ({
   type: RECEIVE_ALBUM,

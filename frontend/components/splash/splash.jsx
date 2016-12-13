@@ -49,23 +49,23 @@ class Splash extends React.Component {
 
   formatResults () {
     if (this.state.results) {
-      return(
-        this.state.results.map((result) => {
-          let path = result.type;
-          if (path === "song") {
-            path = "album";
-          }
-          return(
-            <Link to={ `${path}/${result.id}` }>
-              <li className="group">
-                <img src={ result.pic }/>
-                <h3>{ result.name }</h3>
-                <p>{ result.type }</p>
-              </li>
-            </Link>
-          );
-        })
-      );
+      const results = this.state.results.map((result) => {
+        let path = result.type;
+        if (path === "song") {
+          path = "album";
+        }
+        return(
+          <Link to={ `${path}/${result.id}` }>
+            <li className="group">
+              <img src={ result.pic }/>
+              <h3>{ result.name }</h3>
+              <p>{ result.type }</p>
+            </li>
+          </Link>
+        );
+      });
+
+      return results.slice(0, 5);
     }
   }
 
