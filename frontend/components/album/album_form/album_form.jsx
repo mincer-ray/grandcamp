@@ -42,7 +42,9 @@ class AlbumForm extends React.Component {
     if (this.formType === "Edit Album") {
       this.props.fetchAlbum(this.props.params.albumId);
     }
-    this.defaultSongForms();
+    if (this.props.album) {
+      this.defaultSongForms();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
