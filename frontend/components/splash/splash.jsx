@@ -13,6 +13,10 @@ class Splash extends React.Component {
     this.fullResults = this.fullResults.bind(this);
   }
 
+  componentDidMount() {
+    this.props.router.setRouteLeaveHook(this.props.route, () => this.props.clearResults());
+  }
+
   componentWillReceiveProps(newProps) {
     this.setState({results: newProps.results});
   }
@@ -47,10 +51,18 @@ class Splash extends React.Component {
     if (this.state.results) {
       return(
         this.state.results.map((result) => {
+          let path = result.type;
+          if (path === "song") {
+            path = "album";
+          }
           return(
-            <li>
-              { result.name }
-            </li>
+            <Link to={ `${path}/${result.id}` }>
+              <li className="group">
+                <img src={ result.pic }/>
+                <h3>{ result.name }</h3>
+                <p>{ result.type }</p>
+              </li>
+            </Link>
           );
         })
       );
@@ -66,11 +78,11 @@ class Splash extends React.Component {
             <div>{ this.Greeting() }</div>
           </section>
           <section className='splash-right'>
-            <form className="autocompleteSearch" onSubmit={ this.fullResults }>
+            <form className="autocomplete-search" onSubmit={ this.fullResults }>
               <input onChange={ this.updateSearch } value={ this.state.value }></input>
             </form>
-            <div className="autocompleteSearchResults">
-              <ul>
+            <div className="autocomplete-search-results">
+              <ul className="group">
                 { this.formatResults() }
               </ul>
             </div>

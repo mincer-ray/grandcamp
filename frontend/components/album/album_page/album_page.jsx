@@ -43,7 +43,7 @@ class AlbumPage extends React.Component {
       );
     } else {
       return(
-        <p>not logged in</p>
+        <p></p>
       );
     }
   }

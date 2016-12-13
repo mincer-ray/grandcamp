@@ -37,6 +37,12 @@
 
 .splash-right {
   float: right;
+
+  a {
+    float: right;
+    margin-left: 10px;
+    margin-top: 15px;
+  }
 }
 
 .splash-logo {
@@ -58,4 +64,72 @@
   color: #848484;
   margin-top: 18px;
   font-weight: lighter;
+}
+
+.autocomplete-search {
+  margin-top: 24px;
+
+  input {
+    border: 1px solid #848484;
+    border-radius: 5px;
+    width: 208px;
+    height: 26px;
+    padding-left: 10px;
+    padding-right: 28px;
+  }
+
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #848484;
+  }
+}
+
+.autocomplete-search-results {
+  position: relative;
+  font-size: 12px;
+  font-weight: normal;
+
+  ul {
+    position: absolute;
+    background: white;
+
+    a {
+      margin: 0;
+    }
+
+    li {
+      display: block;
+      width: 246px;
+      border-left: 1px solid #848484;
+      border-right: 1px solid #848484;
+
+      img {
+        float: left;
+        display: block;
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+      }
+
+      h3 {
+        margin-top: 15px;
+        width: 70%;
+        float: left;
+      }
+
+      p {
+        float: left;
+        font-weight: lighter;
+        margin-top: 5px;
+      }
+    }
+
+    li:last-child {
+      border-bottom: 1px solid #848484;
+    }
+
+    li:hover {
+      background: #ddd;
+    }
+  }
 }

@@ -2,6 +2,7 @@ import { search } from '../util/search_api_util';
 import { receiveErrors } from './error_actions';
 
 export const RECEIVE_RESULTS = "RECEIVE_RESULTS";
+export const CLEAR_RESULTS = "CLEAR_RESULTS";
 
 export const runSearch = (query) => {
   return (dispatch) => {
@@ -16,4 +17,8 @@ export const runSearch = (query) => {
 export const receiveResults = results => ({
   type: RECEIVE_RESULTS,
   results
+});
+
+export const clearResults = () => ({
+  type: CLEAR_RESULTS
 });
