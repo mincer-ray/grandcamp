@@ -154,7 +154,14 @@ class AlbumForm extends React.Component {
   render () {
     if (this.props.loading) {
       return (
-        <div className="loader">Loading...</div>
+        <main className="form-content">
+          <section className="form">
+            <div id="loader">
+              <div id="box"></div>
+              <div id="hill"></div>
+            </div>
+          </section>
+        </main>
       );
     } else {
       return(

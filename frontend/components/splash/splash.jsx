@@ -14,7 +14,10 @@ class Splash extends React.Component {
   }
 
   componentDidMount() {
-    this.props.router.setRouteLeaveHook(this.props.route, () => this.props.clearResults());
+    this.props.router.setRouteLeaveHook(this.props.route, () => {
+      this.props.clearResults();
+      this.props.clearErrors();
+    });
   }
 
   componentWillReceiveProps(newProps) {
@@ -80,6 +83,7 @@ class Splash extends React.Component {
           <section className='splash-right'>
             <form className="autocomplete-search" onSubmit={ this.fullResults }>
               <input onChange={ this.updateSearch } value={ this.state.value }></input>
+              <div className="search-icon"/>
             </form>
             <div className="autocomplete-search-results">
               <ul className="group">

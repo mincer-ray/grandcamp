@@ -41,6 +41,7 @@ class ArtistForm extends React.Component {
     if (this.state.band_header != undefined) {
       formData.append("artist[band_header]", this.state.band_header);
     }
+
     this.props.updateArtist(formData, this.redirect.bind(this), null, this.props.artistId);
   }
 

@@ -68,6 +68,18 @@
 
 .autocomplete-search {
   margin-top: 24px;
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    display: block;
+    height: 25px;
+    width: 25px;
+    background-image: image-url("search.png");
+    background-size: 100%;;
+  }
 
   input {
     border: 1px solid #848484;
@@ -76,6 +88,11 @@
     height: 26px;
     padding-left: 10px;
     padding-right: 28px;
+  }
+
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #848484;
   }
 
   input:focus {

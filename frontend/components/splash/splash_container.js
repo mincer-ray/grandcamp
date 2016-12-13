@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { runSearch, clearResults } from '../../actions/search_actions';
+import { clearErrors } from '../../actions/error_actions';
+import { receiveCurrentUser } from '../../actions/session_actions';
 import { resultsArray } from '../../reducers/selectors';
 import Splash from './splash';
 
@@ -16,7 +18,8 @@ function mapDispatchToProps(dispatch, ownProps) {
     dispatch,
     logout: () => dispatch(logout()),
     runSearch: (query) => dispatch(runSearch(query)),
-    clearResults: () => dispatch(clearResults())
+    clearResults: () => dispatch(clearResults()),
+    clearErrors: () => dispatch(clearErrors())
   });
 }
 
