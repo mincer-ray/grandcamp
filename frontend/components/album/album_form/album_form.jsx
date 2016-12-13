@@ -197,11 +197,11 @@ class AlbumForm extends React.Component {
                 value={ this.state.date }
                 onChange={this.updateState}/>
             </label>
-            <a onClick={ this.addSongForm }>+Add Song+</a>
+            <a onClick={ this.removeSongForm }>-Remove Song-</a>
             <ul className="trackForms group">
               { this.state.trackForms }
             </ul>
-            <a onClick={ this.removeSongForm }>-Remove Song-</a>
+            <a onClick={ this.addSongForm }>+Add Song+</a>
             <br></br>
             <Alerts errors={ this.props.errors }/>
             <button className="album-submit-button" type="submit">Submit</button>

@@ -29,8 +29,8 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path='/' component={ App }>
-          <IndexRoute component={ SplashContainer } />
+        <Route path="/" component={ SplashContainer } />
+        <Route component={ App }>
           <Route
             path='/login'
             component={ SessionFormContainer }

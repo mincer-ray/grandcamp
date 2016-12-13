@@ -68,6 +68,7 @@ class SessionForm extends React.Component {
           <br></br>
           <Alerts errors={ this.props.errors }/>
           <button>{ this.props.formType }</button>
+          <br></br>
           { this.guest() }
         </form>
         </section>
