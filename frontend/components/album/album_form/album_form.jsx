@@ -1,5 +1,6 @@
 import React from 'react';
 import Alerts from '../../error/alerts';
+import SongForm from './song_form';
 
 class AlbumForm extends React.Component {
   constructor (props) {
@@ -34,6 +35,7 @@ class AlbumForm extends React.Component {
     this.removeSongForm = this.removeSongForm.bind(this);
     this.deleteAlbum = this.deleteAlbum.bind(this);
     this.deleteAlbumButton = this.deleteAlbumButton.bind(this);
+    this.defaultSongForms = this.defaultSongForms.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +50,7 @@ class AlbumForm extends React.Component {
         this.props.fetchAlbum(nextProps.params.albumId);
       }
     }
+    this.defaultSongForms();
   }
 
   updateFile (e) {
@@ -64,6 +67,7 @@ class AlbumForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     var formData = new FormData();
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
@@ -95,35 +99,34 @@ class AlbumForm extends React.Component {
     this.setState({[e.currentTarget.id]: e.currentTarget.value});
   }
 
-  songForm() {
+  songForm(title, trackNum) {
     return(
-      <li key={ this.state.trackCount }>
-        <p>Track { this.state.trackCount }</p>
-        <label><p>Title</p>
-          <input
-            id={ `songTitle${ this.state.trackCount }` }
-            type='text'
-            onChange={ this.updateState }/>
-        </label>
-        <label><p>Track #</p>
-          <input
-            id={ `songTrack_Num${ this.state.trackCount }` }
-            type='text'
-            onChange={ this.updateState }/>
-        </label>
-        <label><p>Audio File</p>
-          <input
-            id={ `songFile${ this.state.trackCount }` }
-            type='file'
-            onChange={ this.updateFile }/>
-        </label>
-      </li>
+      <SongForm
+        trackCount={ this.state.trackCount }
+        updateState={ this.updateState }
+        updateFile={ this.updateFile }
+        title={ title }
+        trackNum={ trackNum }
+        />
     );
+  }
+
+  defaultSongForms () {
+    debugger
+    let trackCount = 1;
+    let trackForms = this.props.album.songs.map((song) => {
+      trackCount = trackCount + 1;
+      return(
+        this.songForm(song.title, song.track_num)
+      );
+    });
+    debugger
+    this.setState({ trackForms, trackCount });
   }
 
   addSongForm() {
     let newForms = this.state.trackForms;
-    newForms.push(this.songForm());
+    newForms.push(this.songForm("", ""));
     this.setState({ trackForms: newForms, trackCount: this.state.trackCount + 1 });
   }
 

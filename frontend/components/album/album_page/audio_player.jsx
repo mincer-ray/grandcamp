@@ -1,4 +1,7 @@
 import React from 'react';
+import JSZip from 'jszip';
+import JSZipUtils from 'jszip-utils';
+import { saveAs } from 'file-saver';
 
 class AudioPlayer extends React.Component {
   constructor(props) {
@@ -21,6 +24,7 @@ class AudioPlayer extends React.Component {
     this.autoPlay = this.autoPlay.bind(this);
     this.nextTrack = this.nextTrack.bind(this);
     this.prevTrack = this.prevTrack.bind(this);
+    this.downloadZip = this.downloadZip.bind(this);
   }
 
   componentDidMount () {
@@ -129,6 +133,20 @@ class AudioPlayer extends React.Component {
     this.state.songs[parseInt(e.currentTarget.id)].file;
   }
 
+  downloadZip () {
+    let zip = new JSZip();
+    let songs = Object.keys(this.state.songs).map((key) => {
+      return this.state.songs[key];
+    });
+    songs.forEach((song) => {
+      JSZipUtils.getBinaryContent(song.file, (err, data) => {
+        zip.file(`${song.title}.mp3`, data, {binary:true});
+      });
+    });
+
+    zip.generateAsync({type:"blob"}).then((content) => saveAs(content, `${this.props.album.title}.zip`));
+  }
+
   playSong (e) {
     this.setState({
       currentSong: this.state.songs[parseInt(e.currentTarget.id)].file,
@@ -166,7 +184,7 @@ class AudioPlayer extends React.Component {
         <div className="player-container group">
           <div className="seek-container group">
             <p>{ this.state.title } { this.timeTracker() }</p>
-            <audio id="audio-file" volume="0.1" src={ `${ this.state.currentSong }` }></audio>
+            <audio id="audio-file" src={ `${ this.state.currentSong }` }></audio>
             <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
             <div className="track-control">
               <div className="prev-track" onClick={ this.prevTrack }/>
