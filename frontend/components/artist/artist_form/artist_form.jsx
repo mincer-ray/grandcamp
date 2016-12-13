@@ -32,6 +32,7 @@ class ArtistForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     var formData = new FormData();
     formData.append("artist[band_name]", this.state.band_name);
     formData.append("artist[bio]", this.state.bio);

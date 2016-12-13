@@ -3,7 +3,7 @@ import React from 'react';
 class SongForm extends React.Component {
   render() {
     return(
-      <li key={ this.props.trackCount }>
+      <li>
         <p>Track { this.props.trackCount }</p>
         <label><p>Title</p>
           <input
