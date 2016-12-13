@@ -72,6 +72,23 @@ class Splash extends React.Component {
     }
   }
 
+  sessionLinks () {
+    if (this.props.currentUser) {
+      return(
+        <div>
+          <Link onClick={ this.props.logout }>log out</Link>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <Link to='/signup'>sign up</Link>
+          <Link to='/login'>log in</Link>
+        </div>
+      );
+    }
+  }
+
   render () {
     return(
       <div className="splash-wrapper">
@@ -90,8 +107,7 @@ class Splash extends React.Component {
                 { this.formatResults() }
               </ul>
             </div>
-            <Link to='/signup'>sign up</Link>
-            <Link to='/login'>log in</Link>
+            { this.sessionLinks() }
           </section>
         </nav>
         <main className="splash-pic"/>
