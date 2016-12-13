@@ -18,7 +18,11 @@ class Splash extends React.Component {
   }
 
   updateSearch (e) {
-    this.props.runSearch(e.currentTarget.value);
+    if (e.currentTarget.value != "") {
+      this.props.runSearch(e.currentTarget.value);
+    } else {
+      this.setState({results: []});
+    }
     this.setState({value: e.currentTarget.value});
   }
 

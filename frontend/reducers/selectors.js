@@ -12,4 +12,4 @@ export const songList = (songsArray) => {
   return songsListObject;
 };
 
-export const resultsArray = (results) => Object.keys(results).map(key => results[key]).shuffle;
+export const resultsArray = (results) => Object.keys(results).map(key => results[key]);

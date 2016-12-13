@@ -39,6 +39,7 @@ class AudioPlayer extends React.Component {
         duration: 0
       };
 
+      this.state.audio.volume = 0.1;
       this.state.audio.addEventListener('timeupdate', this.timeUpdate);
       this.state.audio.addEventListener('loadeddata', this.autoPlay);
     }
@@ -165,7 +166,7 @@ class AudioPlayer extends React.Component {
         <div className="player-container group">
           <div className="seek-container group">
             <p>{ this.state.title } { this.timeTracker() }</p>
-            <audio id="audio-file" src={ `${ this.state.currentSong }` }></audio>
+            <audio id="audio-file" volume="0.1" src={ `${ this.state.currentSong }` }></audio>
             <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
             <div className="track-control">
               <div className="prev-track" onClick={ this.prevTrack }/>
