@@ -104,6 +104,7 @@ class AlbumForm extends React.Component {
   songForm(title, trackNum) {
     return(
       <SongForm
+        key={ this.state.trackCount }
         trackCount={ this.state.trackCount }
         updateState={ this.updateState }
         updateFile={ this.updateFile }
