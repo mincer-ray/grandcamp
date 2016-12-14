@@ -15,7 +15,7 @@
 
 class Album < ActiveRecord::Base
   validates :title, :description, :artist_id, presence: true
-  has_attached_file :album_art, default_url: 'default.jpg'
+  has_attached_file :album_art, styles: {thumb: "50x50#"}, default_url: 'default.jpg'
   validates_attachment_content_type :album_art, content_type: /\Aimage\/.*\Z/
 
   after_initialize :set_default_date

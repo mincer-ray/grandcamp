@@ -41,7 +41,7 @@ class Splash extends React.Component {
     if (this.props.currentUser) {
       return (
         <p className="splash-plug-user">Hi { this.props.currentUser.username } | <Link
-          to={ `/artist/${ currentUser.id }` }>your site</Link></p>
+          to={ `/artist/${ this.props.currentUser.id }` }>your site</Link></p>
       );
     } else {
       return(
