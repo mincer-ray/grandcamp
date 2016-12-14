@@ -28,6 +28,8 @@ gem "paperclip", "~> 5.0.0"
 
 gem 'figaro'
 
+gem 'faker'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
