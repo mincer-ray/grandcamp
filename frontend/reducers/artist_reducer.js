@@ -1,4 +1,4 @@
-import { RECEIVE_ARTIST, UPDATE_ARTIST } from '../actions/artist_actions';
+import { RECEIVE_ARTIST, UPDATE_ARTIST, CLEAR_ARTIST } from '../actions/artist_actions';
 
 const defaultState = {
   band_name: "",
@@ -14,6 +14,8 @@ const ArtistReducer = (state = defaultState, action) => {
   switch (action.type) {
     case RECEIVE_ARTIST:
       newState = action.artist;
+      return newState;
+    case CLEAR_ARTIST:
       return newState;
     default:
       return state;

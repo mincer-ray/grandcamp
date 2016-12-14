@@ -5,8 +5,6 @@ const LoadingReducer = (state = false, action) => {
   let newState = false;
   switch (action.type) {
     case CREATE_ALBUM:
-    case RECEIVE_ALBUM:
-    case RECEIVE_ALL_ALBUMS:
       newState = true;
       return newState;
     default:

@@ -1,4 +1,4 @@
-import { RECEIVE_ALBUM, RECEIVE_ALL_ALBUMS } from '../actions/album_actions';
+import { RECEIVE_ALBUM, RECEIVE_ALL_ALBUMS, CLEAR_ALBUMS } from '../actions/album_actions';
 
 const defaultState = {
 };
@@ -13,6 +13,8 @@ const AlbumReducer = (state = defaultState, action) => {
       return newState;
     case RECEIVE_ALBUM:
       newState[[action.album.id]] = action.album;
+      return newState;
+    case CLEAR_ALBUMS:
       return newState;
     default:
       return state;

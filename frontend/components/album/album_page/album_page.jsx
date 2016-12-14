@@ -13,6 +13,8 @@ class AlbumPage extends React.Component {
   }
 
   componentDidMount() {
+    this.props.clearAlbums();
+    this.props.clearArtist();
     this.props.fetchAlbum(this.props.params.albumId)
       .then(() => this.props.fetchArtist(this.props.album.artist_id));
   }

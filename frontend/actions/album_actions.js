@@ -5,6 +5,8 @@ export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 export const RECEIVE_ALL_ALBUMS = "RECEIVE_ALL_ALBUMS";
 export const CREATE_ALBUM = "CREATE_ALBUM";
 
+export const CLEAR_ALBUMS = "CLEAR_ALBUMS";
+
 export const fetchAlbum = (albumId) => {
   return (dispatch) => {
     return APIUtil.fetch(albumId)
@@ -63,4 +65,8 @@ export const receiveAlbum = album => ({
 export const receiveAllAlbums = albums => ({
   type: RECEIVE_ALL_ALBUMS,
   albums
+});
+
+export const clearAlbums = () => ({
+  type: CLEAR_ALBUMS
 });

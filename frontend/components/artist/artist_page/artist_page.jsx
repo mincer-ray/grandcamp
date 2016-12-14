@@ -8,6 +8,8 @@ class ArtistPage extends React.Component {
   }
 
   componentDidMount() {
+    this.props.clearArtist();
+    this.props.clearAlbums();
     this.props.fetchAllAlbums(this.props.artistId);
     this.props.fetchArtist(this.props.artistId);
   }

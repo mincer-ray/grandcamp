@@ -44,21 +44,25 @@ class Nav extends React.Component {
   }
 
   render () {
-    return (
-      <nav className="nav-container">
-        <section className="navbar group">
-          <Link to='/'>
-            <div className="logo-highlight">
-            <div className="logo">
-              <div className="logo-doodad"></div>
-              <h1 className="logo-text">gc</h1>
-            </div>
-            </div>
-          </Link>
-          { this.navLinks() }
-        </section>
-      </nav>
-    );
+    if ( this.props.currentUser != undefined ) {
+      return (
+        <nav className="nav-container">
+          <section className="navbar group">
+            <Link to='/'>
+              <div className="logo-highlight">
+              <div className="logo">
+                <div className="logo-doodad"></div>
+                <h1 className="logo-text">gc</h1>
+              </div>
+              </div>
+            </Link>
+            { this.navLinks() }
+          </section>
+        </nav>
+      );
+    } else {
+      return <div></div>;
+    }
   }
 }
 
