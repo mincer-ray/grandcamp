@@ -51,8 +51,8 @@ class AlbumPage extends React.Component {
   // <Link to={ `/artist/${ this.props.album.artist_id }` } onClick={ this.props.destroyAlbum(this.props.album.id) }><p>Delete Album</p></Link>
 
   render () {
-    if (this.props.artist.primary_color) {
-      document.getElementsByClassName("root")[0].style = `background: ${ this.props.artist.primary_color } !important;`;
+    if (this.props.artist.primary_color && document.getElementsByClassName("root")[0] != undefined) {
+      document.getElementsByClassName("root")[0].style = `background: ${ this.props.artist.primary_color };`;
     }
     if (this.props.album && this.props.album.songs) {
       return(
@@ -77,7 +77,16 @@ class AlbumPage extends React.Component {
         </div>
       );
     } else {
-      return <div></div>;
+      return(
+        <div className="album-content-container group">
+          <section className="form">
+            <div id="loader">
+              <div id="box"></div>
+              <div id="hill"></div>
+            </div>
+          </section>
+        </div>
+      );
     }
   }
 }

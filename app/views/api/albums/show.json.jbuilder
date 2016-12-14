@@ -2,7 +2,7 @@ json.id @album.id
 json.title @album.title
 json.description @album.description
 json.artist_id @album.artist_id
-json.album_art asset_path(@album.album_art)
+json.album_art asset_path(@album.album_art.url(:full))
 json.date @album.date
 json.songs @album.songs.each do |song|
   json.id song.id

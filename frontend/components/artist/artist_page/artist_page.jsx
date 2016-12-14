@@ -70,3 +70,14 @@ class ArtistPage extends React.Component {
 }
 
 export default ArtistPage;
+
+// return(
+//   <div className="artist-page-container group">
+//     <section className="form">
+//       <div id="loader">
+//         <div id="box"></div>
+//         <div id="hill"></div>
+//       </div>
+//     </section>
+//   </div>
+// );

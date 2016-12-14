@@ -9,7 +9,8 @@ function mapStateToProps(state, { params }) {
   return ({
     album: state.albums[albumId],
     artist: state.artist,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    loading: state.loading
   });
 }
 

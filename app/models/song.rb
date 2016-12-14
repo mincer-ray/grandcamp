@@ -14,7 +14,7 @@
 
 class Song < ActiveRecord::Base
   validates :title, :track_num, :album, presence: true
-  has_attached_file :file, default_url: 'default.jpg'
+  has_attached_file :file
   validates_attachment_content_type :file, content_type:
   [
     'audio/mpeg',

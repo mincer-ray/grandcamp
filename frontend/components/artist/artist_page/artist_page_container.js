@@ -9,7 +9,8 @@ function mapStateToProps(state, { params }) {
   return ({
     artist: state.artist,
     albums: asArray(state.albums),
-    artistId
+    artistId,
+    loading: state.loading
   });
 }
 
