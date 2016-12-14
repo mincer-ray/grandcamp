@@ -17,6 +17,7 @@ class ArtistPage extends React.Component {
       this.props.fetchAllAlbums(nextProps.artistId);
       this.props.fetchArtist(nextProps.artistId);
     }
+    document.getElementsByClass("artist-background").style = "";
   }
 
   ArtistSidebar () {

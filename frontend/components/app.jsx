@@ -5,7 +5,7 @@ import Footer from './footer/footer';
 const App = (props) => (
   <div className="root">
     <Nav router={ props.router }/>
-    <main className="group">
+    <main className="artist-background group">
       { props.children }
     </main>
     <Footer/>

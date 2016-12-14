@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209165826) do
+ActiveRecord::Schema.define(version: 20161214155705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20161209165826) do
     t.string   "band_header_content_type"
     t.integer  "band_header_file_size"
     t.datetime "band_header_updated_at"
+    t.string   "primary_color"
   end
 
   add_index "users", ["band_name"], name: "index_users_on_band_name", using: :btree
