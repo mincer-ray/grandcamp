@@ -153,3 +153,213 @@ green.albums.create(
 )
 
 user_count += 1
+
+blue = User.create(
+  username: "user#{user_count}",
+  password: "password",
+  band_name: "#{Faker::Beer.hop} #{Faker::App.name}",
+  bio: "#{Faker::Hipster.paragraph}",
+  primary_color: "#2a2b75",
+  secondary_color: "#131e33",
+  text_color: "#a8b0e6",
+  band_header: open("https://www.dropbox.com/s/ykzp8q1esxl339y/banner.jpeg?dl=1"),
+  artist_pic: open("https://www.dropbox.com/s/iviqjublfsdcjwg/artist.jpeg?dl=1")
+)
+
+blue.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/qr1wejp9lve0ovp/cover1.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+blue.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/sthnssobzn08wh4/cover2.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+blue.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/s1ghk5jnpc9pyks/cover3.jpg?dl=1"),
+  date: '2016-12-08'
+)
+
+user_count += 1
+
+purple = User.create(
+  username: "user#{user_count}",
+  password: "password",
+  band_name: "#{Faker::Beer.hop} #{Faker::App.name}",
+  bio: "#{Faker::Hipster.paragraph}",
+  primary_color: "#523a85",
+  secondary_color: "#221333",
+  text_color: "#bba8e6",
+  band_header: open("https://www.dropbox.com/s/7md5ulivdq2s6hx/banner.jpg?dl=1"),
+  artist_pic: open("https://www.dropbox.com/s/hdcwk9cts0bhmsz/artist.jpg?dl=1")
+)
+
+purple.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/vw8ia6911wkxpd2/cover1.jpg?dl=1"),
+  date: '2016-12-08'
+)
+
+purple.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/7e5w2h1luf36psf/cover2.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+purple.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/p8le8dlb4p1z9tw/cover3.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+user_count += 1
+
+pink = User.create(
+  username: "user#{user_count}",
+  password: "password",
+  band_name: "#{Faker::Beer.hop} #{Faker::App.name}",
+  bio: "#{Faker::Hipster.paragraph}",
+  primary_color: "#853a7d",
+  secondary_color: "#33132c",
+  text_color: "#e6a8c5",
+  band_header: open("https://www.dropbox.com/s/0crvkmab1i5igbt/banner.jpeg?dl=1"),
+  artist_pic: open("https://www.dropbox.com/s/4ary1iaexjdv18u/artist.jpeg?dl=1")
+)
+
+pink.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/jfhwpguqezift7g/cover1.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+pink.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/l4nzu4ol3pg0obk/cover2.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+pink.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/gnonqlmkk8gofey/cover3.jpg?dl=1"),
+  date: '2016-12-08'
+)
+
+user_count += 1
+
+brown = User.create(
+  username: "user#{user_count}",
+  password: "password",
+  band_name: "#{Faker::Beer.hop} #{Faker::App.name}",
+  bio: "#{Faker::Hipster.paragraph}",
+  primary_color: "#463c2a",
+  secondary_color: "#373035",
+  text_color: "#776f72",
+  band_header: open("https://www.dropbox.com/s/9yqo2jj46bmwtdk/banner.jpeg?dl=1"),
+  artist_pic: open("https://www.dropbox.com/s/ug0kr4h2q3tizcs/artist.jpg?dl=1")
+)
+
+brown.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/hgxoe3ro3da8njf/cover1.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+brown.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/vdgluaw9pcii5q1/cover2.jpg?dl=1"),
+  date: '2016-12-08'
+)
+
+brown.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/akqb5t9rb9xkem1/cover3.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+user_count += 1
+
+black = User.create(
+  username: "user#{user_count}",
+  password: "password",
+  band_name: "#{Faker::Beer.hop} #{Faker::App.name}",
+  bio: "#{Faker::Hipster.paragraph}",
+  primary_color: "#ffffff",
+  secondary_color: "#000000",
+  text_color: "#e1e2a9",
+  band_header: open("https://www.dropbox.com/s/bb5g38qj4k0rpuv/banner.jpeg?dl=1"),
+  artist_pic: open("https://www.dropbox.com/s/5sjet6qg710k86d/artist.jpeg?dl=1")
+)
+
+black.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/dr50wl5e087chmx/cover1.jpg?dl=1"),
+  date: '2016-12-08'
+)
+
+black.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/ixxxxwipia4rov4/cover2.jpg?dl=1"),
+  date: '2016-12-08'
+)
+
+black.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/6064jxuylwwdbs3/cover3.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+user_count += 1
+
+grey = User.create(
+  username: "user#{user_count}",
+  password: "password",
+  band_name: "#{Faker::Beer.hop} #{Faker::App.name}",
+  bio: "#{Faker::Hipster.paragraph}",
+  primary_color: "#ffffff",
+  secondary_color: "#000000",
+  text_color: "#e1e2a9",
+  band_header: open("https://www.dropbox.com/s/gnecifk4rokmhu6/banner.jpeg?dl=1"),
+  artist_pic: open("https://www.dropbox.com/s/ookxrnd5nk4r50l/artist.jpg?dl=1")
+)
+
+grey.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/ybs0hmgyuidlont/cover1.jpg?dl=1"),
+  date: '2016-12-08'
+)
+
+grey.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/jf2mqqe6w62nazr/cover2.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+grey.albums.create(
+  title: "#{Faker::Space.moon} #{Faker::Name.first_name} #{Faker::Beer.malts}",
+  description: "#{Faker::Lorem.paragraph}",
+  album_art: open("https://www.dropbox.com/s/57nd7u8oi92g6w1/cover3.jpeg?dl=1"),
+  date: '2016-12-08'
+)
+
+user_count += 1
