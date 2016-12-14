@@ -51,9 +51,12 @@ class AlbumPage extends React.Component {
   // <Link to={ `/artist/${ this.props.album.artist_id }` } onClick={ this.props.destroyAlbum(this.props.album.id) }><p>Delete Album</p></Link>
 
   render () {
+    if (this.props.artist.primary_color) {
+      document.getElementsByClassName("root")[0].style = `background: ${ this.props.artist.primary_color } !important;`;
+    }
     if (this.props.album && this.props.album.songs) {
       return(
-        <div className="album-content-container group">
+        <div className="album-content-container group" style={ {backgroundColor: this.props.artist.secondary_color, color: this.props.artist.text_color }}>
           <header className="artist-header-image">
             <Link to={ `/artist/${ this.props.artist.id }` }>
               <img src={ this.props.artist.band_header } />
@@ -61,8 +64,8 @@ class AlbumPage extends React.Component {
           </header>
           <main className="album-content group">
             <section className="album-play-container group">
-              <h2>{ this.props.album.title }</h2>
-              <h3>by <strong className="artist-name">{ this.props.artist.band_name }</strong></h3>
+              <h2 style={ {color: this.props.artist.primary_color }}>{ this.props.album.title }</h2>
+              <h3>by <strong className="artist-name" style={ {color: this.props.artist.primary_color }}>{ this.props.artist.band_name }</strong></h3>
               { this.EditButtons() }
               <AudioPlayer songs={ songList(this.props.album.songs) } album={ this.props.album }/>
             </section>

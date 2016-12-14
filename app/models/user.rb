@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   has_attached_file :band_header, default_url: 'hrt.jpg'
   validates_attachment_content_type :band_header, content_type: /\Aimage\/.*\Z/
 
-  after_initialize :ensure_session_token, :set_default_primary_color
+  after_initialize :ensure_session_token, :set_default_colors
   # before_validation :ensure_session_token_unique
 
   has_many :albums,
@@ -43,8 +43,10 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  def set_default_primary_color
+  def set_default_colors
     self.primary_color ||= "#ddd"
+    self.secondary_color ||= "#ffffff"
+    self.text_color ||= "#000000"
   end
 
   def self.find_by_credentials(username, password)

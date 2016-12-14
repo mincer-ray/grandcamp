@@ -40,7 +40,7 @@ class Api::UsersController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:band_name, :bio, :artist_pic, :band_header)
+    params.require(:artist).permit(:band_name, :bio, :artist_pic, :band_header, :primary_color, :secondary_color, :text_color)
   end
 
   def ensure_logged_in; end

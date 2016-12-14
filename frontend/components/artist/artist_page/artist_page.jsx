@@ -17,7 +17,6 @@ class ArtistPage extends React.Component {
       this.props.fetchAllAlbums(nextProps.artistId);
       this.props.fetchArtist(nextProps.artistId);
     }
-    document.getElementsByClass("artist-background").style = "";
   }
 
   ArtistSidebar () {
@@ -32,7 +31,7 @@ class ArtistPage extends React.Component {
 
   AlbumIndex () {
     return (
-      <main className="album-index-container">
+      <main className="album-index-container" style={ {color: this.props.artist.text_color }}>
         <ul>
           { this.props.albums.map(album => {
             return(
@@ -51,8 +50,11 @@ class ArtistPage extends React.Component {
   }
 
   render () {
+    if (this.props.artist.primary_color && document.getElementsByClassName("root")[0] != undefined) {
+      document.getElementsByClassName("root")[0].style = `background: ${ this.props.artist.primary_color } !important;`;
+    }
     return (
-      <main className="artist-page-container group">
+      <main className="artist-page-container group" style={ {backgroundColor: this.props.artist.secondary_color, color: this.props.artist.text_color }}>
         <div>
           <header className="artist-header-image">
             <Link to={ `/artist/${ this.props.artistId }` }>

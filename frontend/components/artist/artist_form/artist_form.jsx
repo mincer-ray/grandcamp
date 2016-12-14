@@ -7,6 +7,9 @@ class ArtistForm extends React.Component {
     this.state = {
       band_name: this.props.artist.band_name,
       bio: this.props.artist.bio,
+      primary_color: this.props.artist.primary_color,
+      secondary_color: this.props.artist.secondary_color,
+      text_color: this.props.artist.text_color
     };
 
     this.updateState = this.updateState.bind(this);
@@ -36,6 +39,9 @@ class ArtistForm extends React.Component {
     var formData = new FormData();
     formData.append("artist[band_name]", this.state.band_name);
     formData.append("artist[bio]", this.state.bio);
+    formData.append("artist[primary_color]", this.state.primary_color);
+    formData.append("artist[secondary_color]", this.state.secondary_color);
+    formData.append("artist[text_color]", this.state.text_color);
     if (this.state.artist_pic != undefined) {
       formData.append("artist[artist_pic]", this.state.artist_pic);
     }
@@ -81,6 +87,27 @@ class ArtistForm extends React.Component {
               onChange={ this.updateState }
               defaultValue={ this.state.bio }>
             </textarea>
+          </label>
+          <label><p>Primary</p>
+            <input
+              id="primary_color"
+              type="color"
+              onChange={this.updateState}
+              value={ this.state.primary_color }/>
+          </label>
+          <label><p>Secondary</p>
+            <input
+              id="secondary_color"
+              type="color"
+              onChange={this.updateState}
+              value={ this.state.secondary_color }/>
+          </label>
+          <label><p>Text</p>
+            <input
+              id="text_color"
+              type="color"
+              onChange={this.updateState}
+              value={ this.state.text_color }/>
           </label>
           <label><p>Artist Pic</p>
             <input
