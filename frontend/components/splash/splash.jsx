@@ -110,7 +110,14 @@ class Splash extends React.Component {
             { this.sessionLinks() }
           </section>
         </nav>
-        <main className="splash-pic"/>
+        <main className='splash-content'>
+          <div className="splash-pic"/>
+          <section className="featured-content">
+            <ul>
+              
+            </ul>
+          </section>
+        </main>
       </div>
     );
   }

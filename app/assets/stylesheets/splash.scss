@@ -19,10 +19,12 @@
 
 .splash-pic {
   display: block;
+  margin: auto;
   background-image: image-url("splash.jpg");
   background-size: 100%;
   width: 100%;
-  height: 100%;
+  height: 540px;
+  max-width: 1400px;
 }
 
 .splash-nav {
@@ -149,5 +151,19 @@
     li:hover {
       background: #ddd;
     }
+  }
+}
+
+.splash-content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #222;
+
+  .featured-content {
+    display: block;
+    background: white;
+    width: 100%;
+    height: 100%;
   }
 }

@@ -40,6 +40,10 @@ class Api::SearchesController < ApplicationController
     end
   end
 
+  def random
+    Album.distinct.count('id')
+  end
+
   private
 
   def search_params
