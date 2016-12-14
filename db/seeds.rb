@@ -334,9 +334,9 @@ grey = User.create(
   password: "password",
   band_name: "#{Faker::Beer.hop} #{Faker::App.name}",
   bio: "#{Faker::Hipster.paragraph}",
-  primary_color: "#ffffff",
-  secondary_color: "#000000",
-  text_color: "#e1e2a9",
+  primary_color: "#8f8f8f",
+  secondary_color: "#403f3f",
+  text_color: "#c8c8c8",
   band_header: open("https://www.dropbox.com/s/gnecifk4rokmhu6/banner.jpeg?dl=1"),
   artist_pic: open("https://www.dropbox.com/s/ookxrnd5nk4r50l/artist.jpg?dl=1")
 )
