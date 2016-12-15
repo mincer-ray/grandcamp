@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   artist: ArtistReducer,
   errors: ErrorReducer,
   albums: AlbumReducer,
-  results: SearchReducer,
+  search: SearchReducer,
   loading: LoadingReducer
 });
 

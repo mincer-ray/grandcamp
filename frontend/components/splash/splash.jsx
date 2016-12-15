@@ -6,7 +6,7 @@ class Splash extends React.Component {
     super(props);
 
     this.state = {
-      value: ""
+      value: "",
     };
 
     this.updateSearch = this.updateSearch.bind(this);
@@ -18,6 +18,8 @@ class Splash extends React.Component {
       this.props.clearResults();
       this.props.clearErrors();
     });
+
+    this.props.getRandom(6);
   }
 
   componentWillReceiveProps(newProps) {
@@ -89,6 +91,26 @@ class Splash extends React.Component {
     }
   }
 
+  FeaturedRandom () {
+    if (this.props.random && this.props.random.length > 0) {
+      return(
+        this.props.random.map((album) => {
+          return(
+            <div className="random-album-container">
+              <Link to={ `album/${ album.id }` }>
+                <li>
+                  <img src={ album.album_art }/>
+                  <p>{ album.name }</p>
+                  <p>By { album.artist_name }</p>
+                </li>
+              </Link>
+            </div>
+          );
+        })
+      );
+    }
+  }
+
   render () {
     return(
       <div className="splash-wrapper">
@@ -110,11 +132,12 @@ class Splash extends React.Component {
             { this.sessionLinks() }
           </section>
         </nav>
-        <main className='splash-content'>
+        <main className='splash-content group'>
           <div className="splash-pic"/>
-          <section className="featured-content">
+          <section className="featured-content group">
             <ul>
-              
+              <h2 className="featured-title">Listen to new albums by our featured artists</h2>
+              { this.FeaturedRandom() }
             </ul>
           </section>
         </main>

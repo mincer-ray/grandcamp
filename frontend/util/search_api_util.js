@@ -5,3 +5,10 @@ export function search(query) {
     data: { search: { query } }
   });
 };
+
+export function random(amount) {
+  return $.ajax({
+    method: "GET",
+    url: `api/searches/${amount}`
+  });
+}

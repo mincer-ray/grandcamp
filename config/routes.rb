@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show, :create, :update, :destroy]
     resources :users, only: [:show, :create, :update]
     resource :session, only: [:create, :destroy]
-    resources :searches, only: [:index]
+    resources :searches, only: [:index, :show]
   end
 
   # Example of regular route:
