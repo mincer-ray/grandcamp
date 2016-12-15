@@ -1,8 +1,9 @@
 class Api::SearchesController < ApplicationController
   def index
-    users = User.where("band_name ~ ?", search_params[:query])
-    albums = Album.where("title ~ ?", search_params[:query])
-    songs = Song.where("title ~ ?", search_params[:query]).includes(:album)
+    query = search_params[:query].downcase
+    users = User.where("LOWER(band_name) ~ ?", query)
+    albums = Album.where("LOWER(title) ~ ?", query)
+    songs = Song.where("LOWER(title) ~ ?", query).includes(:album)
     @results = {}
     counter = 1;
 
@@ -45,7 +46,7 @@ class Api::SearchesController < ApplicationController
     num_random = params[:id].to_i
     num_random = num_albums if num_random > num_albums
     @random_albums = []
-    
+
     while @random_albums.length < num_random
       random = Album.find(rand(1..num_albums))
 
