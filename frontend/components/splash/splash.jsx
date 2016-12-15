@@ -15,19 +15,20 @@ class Splash extends React.Component {
 
   componentDidMount() {
     this.props.router.setRouteLeaveHook(this.props.route, () => {
-      this.props.clearResults();
       this.props.clearErrors();
     });
 
+    this.props.clearResults();
     this.props.getRandom(6);
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({results: newProps.results});
+    this.setState({ results: newProps.results });
   }
 
   updateSearch (e) {
     if (e.currentTarget.value != "") {
+      this.props.clearErrors();
       this.props.runSearch(e.currentTarget.value);
     } else {
       this.setState({results: []});
@@ -54,13 +55,22 @@ class Splash extends React.Component {
 
   formatResults () {
     if (this.state.results) {
+      // if (this.props.errors && this.props.errors.responseJSON && this.props.errors.responseJSON.length > 0) {
+      //   return (
+      //     <Link>
+      //       <li className="group">
+      //         <h3>no results found</h3>
+      //       </li>
+      //     </Link>
+      //   );
+      // }
       const results = this.state.results.map((result) => {
         let path = result.type;
         if (path === "song") {
           path = "album";
         }
         return(
-          <Link to={ `${path}/${result.id}` }>
+          <Link to={ `${path}/${result.id}` } key={ `${result.name}${result.type}${result.id}` }>
             <li className="group">
               <img src={ result.pic }/>
               <h3>{ result.name }</h3>
@@ -96,12 +106,12 @@ class Splash extends React.Component {
       return(
         this.props.random.map((album) => {
           return(
-            <div className="random-album-container">
+            <div className="random-album-container" key={ `${album.name}${album.color}${album.artist_name}` }>
               <Link to={ `album/${ album.id }` }>
                 <li>
                   <img src={ album.album_art }/>
-                  <p>{ album.name }</p>
-                  <p>By { album.artist_name }</p>
+                  <p className="featured-album" style={ {color: album.color} }>{ album.name }</p>
+                  <p className="featured-artist">By { album.artist_name }</p>
                 </li>
               </Link>
             </div>
@@ -121,7 +131,7 @@ class Splash extends React.Component {
           </section>
           <section className='splash-right'>
             <form className="autocomplete-search" onSubmit={ this.fullResults }>
-              <input onChange={ this.updateSearch } value={ this.state.value }></input>
+              <input onChange={ this.updateSearch } value={ this.state.value } placeholder="Search for artist, track or album"></input>
               <div className="search-icon"/>
             </form>
             <div className="autocomplete-search-results">

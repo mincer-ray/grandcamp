@@ -178,6 +178,17 @@
         display: block;
         width: 300px;
         float: left;
+
+        .featured-album {
+          font-size: 16px;
+          margin-top: 10px;
+        }
+
+        .featured-artist {
+          font-size: 14px;
+          margin-top: 5px;
+          font-weight: lighter;
+        }
       }
     }
   }

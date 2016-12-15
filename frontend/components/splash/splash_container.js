@@ -8,6 +8,7 @@ import Splash from './splash';
 
 function mapStateToProps(state) {
   return ({
+    errors: state.errors,
     results: resultsArray(state.search.results),
     currentUser: state.session.currentUser,
     random: resultsArray(state.search.random),
