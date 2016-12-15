@@ -23,6 +23,9 @@ class Song < ActiveRecord::Base
     'audio/x-mp3',
     'audio/mpeg3',
     'audio/x-mpeg3',
+    'audio/m4a',
+    'audio/mpeg4',
+    'audio/x-mpeg4',
     'audio/mpg',
     'audio/x-mpg',
     'audio/x-mpegaudio'

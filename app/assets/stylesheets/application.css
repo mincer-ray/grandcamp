@@ -43,6 +43,10 @@ img {
    color: #333;
  }
 
+ a:hover {
+   text-decoration: underline;
+ }
+
 button {
   cursor: pointer;
 }

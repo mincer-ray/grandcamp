@@ -67,7 +67,12 @@ class AlbumPage extends React.Component {
           <main className="album-content group">
             <section className="album-play-container group">
               <h2 style={ {color: this.props.artist.primary_color }}>{ this.props.album.title }</h2>
-              <h3>by <strong className="artist-name" style={ {color: this.props.artist.primary_color }}>{ this.props.artist.band_name }</strong></h3>
+              <h3>by <Link to={ `/artist/${ this.props.artist.id }` }>
+                  <strong className="artist-name" style={ {color: this.props.artist.primary_color }}>
+                    { this.props.artist.band_name }
+                  </strong>
+                </Link>
+              </h3>
               { this.EditButtons() }
               <AudioPlayer songs={ songList(this.props.album.songs) } album={ this.props.album }/>
             </section>
