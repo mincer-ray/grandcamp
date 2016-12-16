@@ -15,6 +15,7 @@
 }
 
 .artist-sidebar h2 {
+  font-weight: bold;
   margin-top: 10px;
   margin-bottom: 20px;
 }
