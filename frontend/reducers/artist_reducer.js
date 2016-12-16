@@ -16,7 +16,7 @@ const ArtistReducer = (state = defaultState, action) => {
       newState = action.artist;
       return newState;
     case CLEAR_ARTIST:
-      return newState;
+      return defaultState;
     default:
       return state;
   }

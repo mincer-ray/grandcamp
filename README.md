@@ -1,5 +1,8 @@
 [logo]: https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/gclogo.png "Grandcamp"
-https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/ssalbum.png
+[albumSS]: https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/ssalbum.png "Album"
+[artistSS]: https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/ssartist.png "Artist"
+[playerSS]: https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/ssplayer.png "Song Player"
+[searchSS]: https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/sssearch.png "Search"
 [heroku]: https://grandcamp.herokuapp.com/
 
 ![alt text][logo]
@@ -14,6 +17,8 @@ and React/Redux for the frontend.
 
 ### Artist and Album pages
 
+![alt text][artistSS]
+
 Users on Grandcamp are musicians, so every user has a personal artist page. The
 users artist information is stored in the users table which contains columns for
 the `band_name` and artist `bio`. Artist pages also allow for customization of
@@ -25,6 +30,8 @@ Users on Grandcamp have a collection of albums that they have uploaded. User alb
 are stored in the albums table which joins to the users table on `artist_id`. Albums
 have a `title`, `description`, and a release `date`. Artists can also upload `album_art`
 to display with the album.
+
+![alt text][albumSS]
 
 Every album has a collection of songs which are stored in the songs table. Songs
 are joined to the albums table on `album_id`. Songs have a `title`, `track_num`,
@@ -43,6 +50,8 @@ be accessed by the player.
 
 ### Song Player
 
+![alt text][playerSS]
+
 Grandcamp Album pages have a song player for visiting fans to hear artist's songs.
 The song player uses the Web Audio API to play music from files that are hosted
 on Amazon Web Services. The `AudioPlayer` component is rendered when an album page
@@ -52,3 +61,5 @@ on tracks that the visitor clicks on in the `SongList` component. The song playe
 stores an object of the albums songs with key values of the `track_num`. When the
 song player hits the end of a track it will automatically play the next track in
 the object.
+
+###
