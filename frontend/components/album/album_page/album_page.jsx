@@ -6,9 +6,6 @@ import { songList } from '../../../reducers/selectors';
 class AlbumPage extends React.Component {
   constructor (props) {
     super(props);
-    this.props.clearAlbums();
-    this.props.clearArtist();
-
     this.state = {
       time: 0
     };

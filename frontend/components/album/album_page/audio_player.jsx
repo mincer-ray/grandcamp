@@ -43,7 +43,7 @@ class AudioPlayer extends React.Component {
         duration: 0
       };
 
-      this.state.audio.volume = 0.1;
+      this.state.audio.volume = 0.5;
       this.state.audio.addEventListener('timeupdate', this.timeUpdate);
       this.state.audio.addEventListener('loadeddata', this.autoPlay);
     }

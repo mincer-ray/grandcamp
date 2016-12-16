@@ -5,8 +5,6 @@ import AlbumIndex from '../../album/album_index/album_index';
 class ArtistPage extends React.Component {
   constructor (props) {
     super(props);
-    this.props.clearArtist();
-    this.props.clearAlbums();
   }
 
   componentDidMount() {
