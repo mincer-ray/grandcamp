@@ -9,4 +9,5 @@ json.songs @album.songs.each do |song|
   json.title song.title
   json.track_num song.track_num
   json.file asset_path(song.file)
+  json.duration song.duration
 end

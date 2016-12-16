@@ -15,6 +15,9 @@
 class Song < ActiveRecord::Base
   validates :title, :track_num, :album, presence: true
   has_attached_file :file
+
+  before_save :extract_duration
+
   validates_attachment_content_type :file, content_type:
   [
     'audio/mpeg',
@@ -35,4 +38,12 @@ class Song < ActiveRecord::Base
     class_name: 'Album',
     foreign_key: :album_id,
     primary_key: :id
+
+  def extract_duration
+    path = file.queued_for_write[:original].path
+    open_opts = { :encoding => 'utf-8' }
+    Mp3Info.open(path, open_opts) do |mp3info|
+      self.duration = mp3info.length.to_i
+    end
+  end
 end

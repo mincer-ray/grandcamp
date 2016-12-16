@@ -27,6 +27,7 @@ gem 'aws-sdk'
 gem "paperclip", "~> 5.0.0"
 
 gem 'figaro'
+gem 'ruby-mp3info', require: 'mp3info'
 
 gem 'faker'
 

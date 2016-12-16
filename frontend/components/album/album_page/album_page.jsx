@@ -74,7 +74,7 @@ class AlbumPage extends React.Component {
                 </Link>
               </h3>
               { this.EditButtons() }
-              <AudioPlayer songs={ songList(this.props.album.songs) } album={ this.props.album }/>
+              <AudioPlayer color={ this.props.artist.text_color }  songs={ songList(this.props.album.songs) } album={ this.props.album }/>
             </section>
             <section className="album-art-container">
               <div className="art-container"><img src={ this.props.album.album_art }/></div>

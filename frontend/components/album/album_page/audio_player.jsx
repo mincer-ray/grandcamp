@@ -117,7 +117,7 @@ class AudioPlayer extends React.Component {
             <div key={ trackNum } className="song-li-container group">
               <li
               id={ trackNum }
-              onClick={ (e) => this.playSong(e) }>{ this.state.songs[trackNum].title }
+              onClick={ (e) => this.playSong(e) }>{ this.state.songs[trackNum].title } { this.padTime(this.state.songs[trackNum].duration) }
               </li>
               <a
                 className="download-link"
@@ -187,8 +187,12 @@ class AudioPlayer extends React.Component {
             <audio id="audio-file" src={ `${ this.state.currentSong }` }></audio>
             <input id="seek" type="range" min="0" max="100" step="1" defaultValue="0" onChange={ this.showRange }/>
             <div className="track-control">
-              <div className="prev-track" onClick={ this.prevTrack }/>
-              <div className="next-track" onClick={ this.nextTrack }/>
+              <div
+                className="prev-track"
+                onClick={ this.prevTrack }/>
+              <div
+                className="next-track"
+                onClick={ this.nextTrack }/>
             </div>
           </div>
           <div className="button-container group">
