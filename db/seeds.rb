@@ -13,7 +13,7 @@ def generate_name
   ].shuffle
   song_name = []
 
-  rand(1..3).times { song_name << random_words.pop }
+  rand(1..2).times { song_name << random_words.pop }
 
   song_name.join(" ")
 end
