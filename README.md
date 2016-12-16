@@ -12,7 +12,3 @@ and React/Redux for the frontend.
 ## Grandcamp Features
 
 ### Artist and Album pages
-
-Grandcamp enables independent musicians to share their music on the web quickly
-and easily in order to reach fans directly. Users on Grandcamp can make and customize
-an artist display page to meet the visual aesthetic their music requires.

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { clearAlbums } from '../actions/album_actions';
+import { clearArtist } from '../actions/artist_actions';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
@@ -12,6 +14,11 @@ import SplashContainer from './splash/splash_container';
 import SearchResultsContainer from './search_results/search_results_container';
 
 const Root = ({ store }) => {
+
+  const _clearState = () => {
+    store.dispatch(clearArtist());
+    store.dispatch(clearAlbums());
+  };
 
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
@@ -45,10 +52,12 @@ const Root = ({ store }) => {
             component={ SearchResultsContainer }/>
           <Route
             path='/artist/:artistId'
-            component={ ArtistPageContainer } />
+            component={ ArtistPageContainer }
+            onLeave={ _clearState } />
           <Route
             path='/album/:albumId'
-            component={ AlbumPageContainer } />
+            component={ AlbumPageContainer }
+            onLeave={ _clearState } />
           <Route
             path='/album/:albumId/edit'
             component={ AlbumFormContainer }
