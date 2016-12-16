@@ -1,4 +1,5 @@
 [logo]: https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/gclogo.png "Grandcamp"
+https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/ssalbum.png
 [heroku]: https://grandcamp.herokuapp.com/
 
 ![alt text][logo]
