@@ -53,11 +53,11 @@ const Root = ({ store }) => {
           <Route
             path='/artist/:artistId'
             component={ ArtistPageContainer }
-            onLeave={ _clearState } />
+            onEnter={ _clearState } />
           <Route
             path='/album/:albumId'
             component={ AlbumPageContainer }
-            onLeave={ _clearState } />
+            onEnter={ _clearState } />
           <Route
             path='/album/:albumId/edit'
             component={ AlbumFormContainer }

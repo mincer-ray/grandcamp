@@ -60,6 +60,30 @@ local state. The reference allows for loading of different song files depending
 on tracks that the visitor clicks on in the `SongList` component. The song player
 stores an object of the albums songs with key values of the `track_num`. When the
 song player hits the end of a track it will automatically play the next track in
-the object.
+the object. Any song uploaded to Grandcamp can be easily downloaded from the track list on an album page.
 
-###
+### Search
+
+![alt text][searchSS]
+
+Grandcamp has search functionality for visitors to find songs, albums, and artists.
+The search bar makes use of the search controller in the backend. The search controller
+sends an active record query to each of the 3 tables and renders a JSON unified to display only
+the title, type of result, art, and ID for the different entries. Clicking on any
+result in the search bar brings you to the appropriate page.
+
+## Future Directions for the Project
+
+### Tags
+
+I would like to add tagging functionality to Grandcamp so artists can better classify
+the genres of their music.
+
+### Expanded Search and Discover page
+
+Search needs a full results page and the Tags need pages for users to browse and
+Discover new music.
+
+### Additional color customization
+
+Adding more options for artists to color specific aspects of their artist page
