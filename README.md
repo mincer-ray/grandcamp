@@ -1,28 +1,18 @@
-== README
+[logo]: https://raw.githubusercontent.com/mincer-ray/grandcamp/master/app/assets/images/gclogo.png "Grandcamp"
+[heroku]: https://grandcamp.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![alt text][logo]
 
-Things you may want to cover:
+[Grandcamp Live][heroku]
 
-* Ruby version
+Grandcamp is a full-stack web application based on the popular indie music website
+Bandcamp.com. It makes use of Ruby on Rails for the backend, a PostgreSQL database,
+and React/Redux for the frontend.
 
-* System dependencies
+## Grandcamp Features
 
-* Configuration
+### Artist and Album pages
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Grandcamp enables independent musicians to share their music on the web quickly
+and easily in order to reach fans directly. Users on Grandcamp can make and customize
+an artist display page to meet the visual aesthetic their music requires.

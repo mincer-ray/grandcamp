@@ -174,7 +174,7 @@ class AlbumForm extends React.Component {
       );
     } else {
       return(
-        <main className="form-content">
+        <main className="form-content group">
           <section className="form group album">
           { this.deleteAlbumButton() }
           <form onSubmit={ this.handleSubmit }>
