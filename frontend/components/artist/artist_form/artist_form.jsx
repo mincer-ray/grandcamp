@@ -48,7 +48,7 @@ class ArtistForm extends React.Component {
     if (this.state.band_header != undefined) {
       formData.append("artist[band_header]", this.state.band_header);
     }
-
+    this.props.updatingArtist();
     this.props.updateArtist(formData, this.redirect.bind(this), null, this.props.artistId);
   }
 
@@ -69,67 +69,80 @@ class ArtistForm extends React.Component {
   }
 
   render () {
-    return (
-      <main className="form-content">
-        <section className="form group band">
-        <h2>Edit Band</h2>
-        <form onSubmit={ this.handleSubmit }>
-          <label><p>Band Name</p>
-            <input
-              id="band_name"
-              type="text"
-              onChange={ this.updateState }
-              value={ this.state.band_name }/>
-          </label>
-          <label><p>Band Biography</p>
-            <textarea
-              id="bio"
-              onChange={ this.updateState }
-              defaultValue={ this.state.bio }>
-            </textarea>
-          </label>
-          <label><p>Primary</p>
-            <input
-              id="primary_color"
-              type="color"
-              onChange={this.updateState}
-              value={ this.state.primary_color }/>
-          </label>
-          <label><p>Secondary</p>
-            <input
-              id="secondary_color"
-              type="color"
-              onChange={this.updateState}
-              value={ this.state.secondary_color }/>
-          </label>
-          <label><p>Text</p>
-            <input
-              id="text_color"
-              type="color"
-              onChange={this.updateState}
-              value={ this.state.text_color }/>
-          </label>
-          <label><p>Artist Pic</p>
-            <input
-              className="inputfile"
-              id="artist_pic"
-              type="file"
-              onChange={this.updateFile}/>
-          </label>
-          <label><p>Band Header</p>
-            <input
-              className="inputfile"
-              id="band_header"
-              type="file"
-              onChange={this.updateFile}/>
-          </label>
-          <br></br>
-          <section>{ this.alerts() }</section>
-          <button>Submit Changes</button>
-        </form>
-        </section>
-      </main>
-    );
+    if (this.props.loading) {
+      return (
+        <main className="form-content">
+          <section className="form">
+            <div id="loader">
+              <div id="box"></div>
+              <div id="hill"></div>
+            </div>
+          </section>
+        </main>
+      );
+    } else {
+      return (
+        <main className="form-content">
+          <section className="form group band">
+          <h2>Edit Band</h2>
+          <form onSubmit={ this.handleSubmit }>
+            <label><p>Band Name</p>
+              <input
+                id="band_name"
+                type="text"
+                onChange={ this.updateState }
+                value={ this.state.band_name }/>
+            </label>
+            <label><p>Band Biography</p>
+              <textarea
+                id="bio"
+                onChange={ this.updateState }
+                defaultValue={ this.state.bio }>
+              </textarea>
+            </label>
+            <label><p>Primary</p>
+              <input
+                id="primary_color"
+                type="color"
+                onChange={this.updateState}
+                value={ this.state.primary_color }/>
+            </label>
+            <label><p>Secondary</p>
+              <input
+                id="secondary_color"
+                type="color"
+                onChange={this.updateState}
+                value={ this.state.secondary_color }/>
+            </label>
+            <label><p>Text</p>
+              <input
+                id="text_color"
+                type="color"
+                onChange={this.updateState}
+                value={ this.state.text_color }/>
+            </label>
+            <label><p>Artist Pic</p>
+              <input
+                className="inputfile"
+                id="artist_pic"
+                type="file"
+                onChange={this.updateFile}/>
+            </label>
+            <label><p>Band Header</p>
+              <input
+                className="inputfile"
+                id="band_header"
+                type="file"
+                onChange={this.updateFile}/>
+            </label>
+            <br></br>
+            <section>{ this.alerts() }</section>
+            <button>Submit Changes</button>
+          </form>
+          </section>
+        </main>
+      );
+    }
   }
 }
 

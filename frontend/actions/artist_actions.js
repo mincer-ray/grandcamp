@@ -27,6 +27,10 @@ export const updateArtist = (artist, success, failure, id) => {
   };
 };
 
+export const updatingArtist = () => ({
+  type: UPDATE_ARTIST
+});
+
 export const receiveArtist = artist => ({
   type: RECEIVE_ARTIST,
   artist
