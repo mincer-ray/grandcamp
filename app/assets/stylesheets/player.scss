@@ -140,6 +140,8 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .album-description {
+  border-top: 1px solid white;
+  padding-top: 20px;
   margin-top: 20px;
   display: block;
   width: 322px;

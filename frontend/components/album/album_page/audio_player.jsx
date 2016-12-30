@@ -8,11 +8,17 @@ class AudioPlayer extends React.Component {
     super(props);
 
     this.state = {
-      title: "",
+      songs: this.props.songs,
+      audio: document.getElementById('audio-file'),
+      seek: document.getElementById('seek'),
       playing: false,
       currentTime: 0,
       buttonClass: "play-btn play",
-      songs: {}
+      currentTrack: 1,
+      currentSong: this.props.songs[1].file,
+      title: this.props.songs[1].title,
+      trackListing: {},
+      duration: 0
     };
 
     this.playPause = this.playPause.bind(this);
@@ -116,8 +122,8 @@ class AudioPlayer extends React.Component {
           return(
             <div key={ trackNum } className="song-li-container group">
               <li
-              id={ trackNum }
-              onClick={ (e) => this.playSong(e) }>{ this.state.songs[trackNum].title } { this.padTime(this.state.songs[trackNum].duration) }
+                id={ trackNum }
+                onClick={ (e) => this.playSong(e) }>{ this.state.songs[trackNum].title } { this.padTime(this.state.songs[trackNum].duration) }
               </li>
               <a
                 className="download-link"

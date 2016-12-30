@@ -4,11 +4,14 @@ import { receiveErrors } from './error_actions';
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 export const RECEIVE_ALL_ALBUMS = "RECEIVE_ALL_ALBUMS";
 export const CREATE_ALBUM = "CREATE_ALBUM";
+export const REQUEST_SINGLE_ALBUM = "REQUEST_SINGLE_ALBUM";
+export const REQUEST_ALL_ALBUMS = "REQUEST_ALL_ALBUMS";
 
 export const CLEAR_ALBUMS = "CLEAR_ALBUMS";
 
 export const fetchAlbum = (albumId) => {
   return (dispatch) => {
+    dispatch(requestSingleAlbum());
     return APIUtil.fetch(albumId)
     .then(
       album => dispatch(receiveAlbum(album)),
@@ -19,6 +22,7 @@ export const fetchAlbum = (albumId) => {
 
 export const fetchAllAlbums = (artistId) => {
   return (dispatch) => {
+    dispatch(requestAllAlbums());
     return APIUtil.fetchAll(artistId)
     .then(
       albums => dispatch(receiveAllAlbums(albums)),
@@ -69,4 +73,12 @@ export const receiveAllAlbums = albums => ({
 
 export const clearAlbums = () => ({
   type: CLEAR_ALBUMS
+});
+
+export const requestSingleAlbum = () => ({
+  type: REQUEST_SINGLE_ALBUM
+});
+
+export const requestAllAlbums = () => ({
+  type: REQUEST_ALL_ALBUMS
 });

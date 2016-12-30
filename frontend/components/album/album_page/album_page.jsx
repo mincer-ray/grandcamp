@@ -13,13 +13,21 @@ class AlbumPage extends React.Component {
 
   componentDidMount() {
     this.props.fetchAlbum(this.props.params.albumId)
-      .then(() => this.props.fetchArtist(this.props.album.artist_id));
+      .then(() => this.props.fetchAllAlbums(this.props.album.artist_id))
+      .then(() => this.props.fetchAlbum(this.props.params.albumId))
+      .then(() => this.props.fetchArtist(this.props.album.artist_id)
+      .then(() => this.props.finishLoading())
+    );
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.albumId !== nextProps.params.albumId) {
       this.props.fetchAlbum(nextProps.params.albumId)
-        .then(() => this.props.fetchArtist(this.props.album.artist_id));
+        .then(() => this.props.fetchArtist(this.props.album.artist_id)
+        .then(() => this.props.fetchAllAlbums(this.props.album.artist_id)
+        .then(() => this.props.fetchAlbum(this.props.params.albumId)
+        .then(() => this.props.finishLoading())))
+      );
     }
   }
 
@@ -29,8 +37,25 @@ class AlbumPage extends React.Component {
         <img src={ this.props.artist.artist_pic } />
         <h2>{ this.props.artist.band_name }</h2>
         <p>{ this.props.artist.bio }</p>
+        <ul>
+          { this.AlbumList() }
+        </ul>
       </sidebar>
     );
+  }
+
+  AlbumList () {
+    let albumList = [];
+
+    if (this.props.albums.length > 0) {
+      this.props.albums.forEach(album => {
+        albumList.push(<Link to={ `/album/${ album.id }` } key={ album.title }>
+          <li><img src={ album.album_art }/>{ album.title }</li>
+        </Link>);
+      });
+    }
+
+    return albumList;
   }
 
   EditButtons () {
@@ -53,7 +78,7 @@ class AlbumPage extends React.Component {
     if (this.props.artist.primary_color && document.getElementsByClassName("root")[0] != undefined) {
       document.getElementsByClassName("root")[0].style = `background: ${ this.props.artist.primary_color };`;
     }
-    if (this.props.album && this.props.album.songs) {
+    if (!this.props.loading) {
       return(
         <div className="album-content-container group" style={ {backgroundColor: this.props.artist.secondary_color, color: this.props.artist.text_color }}>
           <header className="artist-header-image">
@@ -82,14 +107,15 @@ class AlbumPage extends React.Component {
       );
     } else {
       return(
-        <div className="album-content-container group">
-          <section className="form">
-            <div id="loader">
-              <div id="box"></div>
-              <div id="hill"></div>
-            </div>
-          </section>
-        </div>
+        <div></div>
+        // <div className="album-content-container group">
+        //   <section className="form">
+        //     <div id="loader">
+        //       <div id="box"></div>
+        //       <div id="hill"></div>
+        //     </div>
+        //   </section>
+        // </div>
       );
     }
   }

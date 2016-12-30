@@ -5,6 +5,7 @@ count = 1
     json.name album.title
     json.artist_name album.artist.band_name
     json.color album.artist.primary_color
+    json.artist_id album.artist.id
     json.album_art asset_path(album.album_art.url(:full))
   end
 

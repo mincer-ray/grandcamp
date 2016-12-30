@@ -3,7 +3,7 @@
   margin: auto;
   height: 100vh;
   min-height: 900px;
-  background: white;
+  background: #848484;
   box-sizing: border-box;
 }
 
@@ -12,13 +12,26 @@
   width: 120px;
   padding: 45px 35px 0 0;
   float: right;
+
+  h2 {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    margin-top: 10px;
+
+    li {
+      margin-bottom: 10px;
+
+      img {
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
 
-.artist-sidebar h2 {
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
 
 .artist-header-image {
   display: block;
