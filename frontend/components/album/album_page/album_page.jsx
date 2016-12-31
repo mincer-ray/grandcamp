@@ -37,6 +37,9 @@ class AlbumPage extends React.Component {
         <img src={ this.props.artist.artist_pic } />
         <h2>{ this.props.artist.band_name }</h2>
         <p>{ this.props.artist.bio }</p>
+        <Link to={ `artist/${ this.props.artist.id }` }>
+          <h2>discography</h2>
+        </Link>
         <ul>
           { this.AlbumList() }
         </ul>
