@@ -49,9 +49,16 @@ class AlbumPage extends React.Component {
 
   AlbumList () {
     let albumList = [];
+    let thisAlbum  = parseInt(this.props.params.albumId);
+    const albums = [];
 
     if (this.props.albums.length > 0) {
-      this.props.albums.slice(0, 2).forEach(album => {
+      this.props.albums.forEach(album => {
+        if (thisAlbum !== album.id) {
+          albums.push(album);
+        }
+      });
+      albums.slice(0, 2).forEach(album => {
         albumList.push(<Link to={ `/album/${ album.id }` } key={ album.title }>
           <li><img src={ album.album_art }/>{ album.title }</li>
         </Link>);
