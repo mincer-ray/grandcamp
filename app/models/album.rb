@@ -24,7 +24,7 @@ class Album < ActiveRecord::Base
     self.date ||= Date.today
   end
 
-  belongs_to :artist,
+  belongs_to :artist, inverse_of: :albums, dependent: :destroy,
     class_name: "User",
     foreign_key: :artist_id,
     primary_key: :id

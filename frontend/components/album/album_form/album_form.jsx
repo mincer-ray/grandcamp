@@ -101,11 +101,11 @@ class AlbumForm extends React.Component {
     this.setState({[e.currentTarget.id]: e.currentTarget.value});
   }
 
-  songForm(title, trackNum) {
+  songForm(title, trackNum, trackCount = this.state.trackCount) {
     return(
       <SongForm
         key= { `${Math.random()}` }
-        trackCount={ this.state.trackCount }
+        trackCount={ trackCount }
         updateState={ this.updateState }
         updateFile={ this.updateFile }
         title={ title }
@@ -116,14 +116,25 @@ class AlbumForm extends React.Component {
 
   defaultSongForms () {
     let trackCount = 1;
-    let trackForms = this.props.album.songs.map((song) => {
+    let songsInOrder = [];
+    while ( songsInOrder.length < this.props.album.songs.length ) {
+      this.props.album.songs.forEach(song => {
+        if ( song.track_num === trackCount ) {
+          songsInOrder.push(song);
+        }
+      });
+      trackCount += 1;
+    }
+
+    trackCount = 1;
+    let trackForms = songsInOrder.map((song) => {
       this.setState({
         [`songTitle${trackCount}`]: song.title,
         [`songTrack_Num${trackCount}`]: song.track_num,
         [`songId${trackCount}`]: song.id});
       trackCount = trackCount + 1;
       return(
-        this.songForm(song.title, song.track_num)
+        this.songForm(song.title, song.track_num, song.track_num)
       );
     });
 

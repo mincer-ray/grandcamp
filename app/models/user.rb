@@ -33,10 +33,10 @@ class User < ActiveRecord::Base
   has_attached_file :band_header, styles: {full: "975#"}, default_url: 'hrt.jpg'
   validates_attachment_content_type :band_header, content_type: /\Aimage\/.*\Z/
 
-  after_initialize :ensure_session_token, :set_default_colors
+  after_initialize :ensure_session_token, :set_default_colors, :set_default_band
   # before_validation :ensure_session_token_unique
 
-  has_many :albums,
+  has_many :albums, inverse_of: :artist, dependent: :destroy,
     class_name: "Album",
     foreign_key: :artist_id,
     primary_key: :id
@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
     self.primary_color ||= "#ddd"
     self.secondary_color ||= "#ffffff"
     self.text_color ||= "#000000"
+  end
+
+  def set_default_band
+    self.band_name ||= "Band Name"
   end
 
   def self.find_by_credentials(username, password)
