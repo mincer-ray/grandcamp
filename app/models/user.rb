@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   has_attached_file :artist_pic, styles: {thumb: "50x50#", full: "120#"}, default_url: 'default.jpg'
   validates_attachment_content_type :artist_pic, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :band_header, styles: {full: "975#"}, default_url: 'hrt.jpg'
+  has_attached_file :band_header, styles: {full: "975x180#"}, default_url: 'hrt.jpg'
   validates_attachment_content_type :band_header, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token, :set_default_colors, :set_default_band
