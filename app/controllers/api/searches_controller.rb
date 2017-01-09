@@ -42,16 +42,7 @@ class Api::SearchesController < ApplicationController
   end
 
   def show
-    num_albums = Album.distinct.count('id')
-    num_random = params[:id].to_i
-    num_random = num_albums if num_random > num_albums
-    @random_albums = []
-
-    while @random_albums.length < num_random
-      random = Album.find(rand(1..num_albums))
-
-      @random_albums.push(random) unless @random_albums.include?(random)
-    end
+    @random_albums = Album.order("RANDOM()").limit(params[:id].to_i)
 
     render "api/searches/random"
   end
