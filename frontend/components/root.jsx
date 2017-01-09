@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { clearAlbums } from '../actions/album_actions';
-import { clearArtist } from '../actions/artist_actions';
+import { finishLoading } from '../actions/loading_actions';
+import { clearAlbums, fetchArtist } from '../actions/album_actions';
+import { clearArtist, fetchAlbum } from '../actions/artist_actions';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
@@ -34,6 +35,15 @@ const Root = ({ store }) => {
     }
   };
 
+  const _waitForLoad = (nextState, replace, _finishLoad) => {
+    store.dispatch(fetchAlbum());
+    store.dispatch(fetchArtist());
+  };
+
+  const _finishLoad = () => {
+
+  };
+
   return (
     <Provider store={ store }>
       <Router history={ hashHistory } onUpdate={ () => window.scrollTo(0,0) }>
@@ -49,7 +59,7 @@ const Root = ({ store }) => {
             onEnter={ _redirectIfLoggedIn } />
           <Route
             path='/results'
-            component={ SearchResultsContainer }/>
+            component={ SearchResultsContainer } />
           <Route
             path='/artist/:artistId'
             component={ ArtistPageContainer }

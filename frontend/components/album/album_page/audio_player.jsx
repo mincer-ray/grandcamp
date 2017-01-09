@@ -15,11 +15,25 @@ class AudioPlayer extends React.Component {
       currentTime: 0,
       buttonClass: "play-btn play",
       currentTrack: 1,
-      currentSong: this.props.songs[1].file,
-      title: this.props.songs[1].title,
       trackListing: {},
       duration: 0
     };
+
+    if (this.props.songs[1]) {
+      this.state = {
+        songs: this.props.songs,
+        audio: document.getElementById('audio-file'),
+        seek: document.getElementById('seek'),
+        currentSong: this.props.songs[1].file,
+        title: this.props.songs[1].title,
+        playing: false,
+        currentTime: 0,
+        buttonClass: "play-btn play",
+        currentTrack: 1,
+        trackListing: {},
+        duration: this.props.songs[1].duration
+      };
+    }
 
     this.playPause = this.playPause.bind(this);
     this.showRange = this.showRange.bind(this);
@@ -46,7 +60,7 @@ class AudioPlayer extends React.Component {
         currentSong: this.props.songs[1].file,
         title: this.props.songs[1].title,
         trackListing: {},
-        duration: 0
+        duration: this.props.songs[1].duration
       };
 
       this.state.audio.volume = 0.5;
