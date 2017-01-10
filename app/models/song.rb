@@ -34,7 +34,7 @@ class Song < ActiveRecord::Base
     'audio/x-mpegaudio'
   ]
 
-  belongs_to :album, inverse_of: :songs, dependent: :destroy,
+  belongs_to :album, inverse_of: :songs,
     class_name: 'Album',
     foreign_key: :album_id,
     primary_key: :id
