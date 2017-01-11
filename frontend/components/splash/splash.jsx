@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-var $ = require('jQuery');
 
 class Splash extends React.Component {
   constructor (props) {

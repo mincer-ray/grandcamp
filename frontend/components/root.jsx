@@ -13,7 +13,6 @@ import AlbumPageContainer from './album/album_page/album_page_container';
 import AlbumFormContainer from './album/album_form/album_form_container';
 import SplashContainer from './splash/splash_container';
 import SearchResultsContainer from './search_results/search_results_container';
-var $ = require('jQuery');
 
 const Root = ({ store }) => {
 
