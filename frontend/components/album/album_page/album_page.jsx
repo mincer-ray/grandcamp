@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import AudioPlayer from './audio_player';
 import { songList } from '../../../reducers/selectors';
+import Spinner from '../../spinner/spinner';
 
 class AlbumPage extends React.Component {
   constructor (props) {
@@ -117,15 +118,7 @@ class AlbumPage extends React.Component {
       );
     } else {
       return(
-        <div></div>
-        // <div className="album-content-container group">
-        //   <section className="form">
-        //     <div id="loader">
-        //       <div id="box"></div>
-        //       <div id="hill"></div>
-        //     </div>
-        //   </section>
-        // </div>
+        <Spinner />
       );
     }
   }

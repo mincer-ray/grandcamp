@@ -37,12 +37,12 @@ class Api::SearchesController < ApplicationController
     if @results.keys.length > 0
       render "api/searches/index"
     else
-      render json: ["nothing found"], status: 404
+      render json: ["nothing found"], status: 200
     end
   end
 
   def show
-    @random_albums = Album.order("RANDOM()").limit(params[:id].to_i)
+    @random_albums = Album.order("RANDOM()").includes("artist").limit(params[:id].to_i)
 
     render "api/searches/random"
   end

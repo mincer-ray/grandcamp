@@ -28,7 +28,7 @@ class Api::AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
 
-    if @album && @album.update(album_params)
+    if @album && current_user == @album.artist && @album.update(album_params)
       render 'api/albums/show'
     else
       render json: @album.errors.full_messages, status: 422
@@ -37,8 +37,8 @@ class Api::AlbumsController < ApplicationController
 
   def destroy
     @album = Album.find(params[:id])
-    
-    if @album
+
+    if @album && current_user == @album.artist
       if @album.destroy
         render json: ['success']
       end

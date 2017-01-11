@@ -8,6 +8,7 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins:[
+    new webpack.IgnorePlugin(/jsdom$/),
     new webpack.DefinePlugin({
       'process.env':{
         'NODE_ENV': JSON.stringify('production')

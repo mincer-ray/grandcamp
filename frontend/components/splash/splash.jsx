@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+var $ = require('jQuery');
 
 class Splash extends React.Component {
   constructor (props) {
@@ -7,10 +8,12 @@ class Splash extends React.Component {
 
     this.state = {
       value: "",
+      random: []
     };
 
     this.updateSearch = this.updateSearch.bind(this);
     this.fullResults = this.fullResults.bind(this);
+    $(window).on("click", this.checkActiveSearch.bind(this));
   }
 
   componentDidMount() {
@@ -23,7 +26,18 @@ class Splash extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    if (this.state.random.length === 0) {
+      this.setState({ random: newProps.random });
+    }
+
     this.setState({ results: newProps.results });
+  }
+
+  checkActiveSearch () {
+    if (document.getElementsByClassName('search-bar')[0] != document.activeElement) {
+      this.props.clearResults();
+      this.setState({ value: "" });
+    }
   }
 
   updateSearch (e) {
@@ -55,15 +69,6 @@ class Splash extends React.Component {
 
   formatResults () {
     if (this.state.results) {
-      // if (this.props.errors && this.props.errors.responseJSON && this.props.errors.responseJSON.length > 0) {
-      //   return (
-      //     <Link>
-      //       <li className="group">
-      //         <h3>no results found</h3>
-      //       </li>
-      //     </Link>
-      //   );
-      // }
       const results = this.state.results.map((result) => {
         let path = result.type;
         if (path === "song") {
@@ -80,6 +85,17 @@ class Splash extends React.Component {
         );
       });
 
+      if (this.state.results[0] === "nothing found") {
+        return(
+          <Link>
+            <li className="group">
+              <img/>
+              <h3>Nothing Found</h3>
+              <p></p>
+            </li>
+          </Link>
+        );
+      }
       return results.slice(0, 5);
     }
   }
@@ -102,9 +118,9 @@ class Splash extends React.Component {
   }
 
   FeaturedRandom () {
-    if (this.props.random && this.props.random.length > 0) {
+    if (this.state.random && this.state.random.length > 0) {
       return(
-        this.props.random.map((album) => {
+        this.state.random.map((album) => {
           return(
             <div className="random-album-container" key={ `${album.name}${album.color}${album.artist_name}` }>
               <Link to={ `album/${ album.id }` }>
@@ -131,7 +147,7 @@ class Splash extends React.Component {
           </section>
           <section className='splash-right'>
             <form className="autocomplete-search" onSubmit={ this.fullResults }>
-              <input onChange={ this.updateSearch } value={ this.state.value } placeholder="Search for artist, track or album"></input>
+              <input className="search-bar" onChange={ this.updateSearch } value={ this.state.value } placeholder="Search for artist, track or album"></input>
               <div className="search-icon"/>
             </form>
             <div className="autocomplete-search-results">

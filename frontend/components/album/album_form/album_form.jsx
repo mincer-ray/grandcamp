@@ -1,6 +1,7 @@
 import React from 'react';
 import Alerts from '../../error/alerts';
 import SongForm from './song_form';
+import Spinner from '../../spinner/spinner';
 
 class AlbumForm extends React.Component {
   constructor (props) {
@@ -174,14 +175,7 @@ class AlbumForm extends React.Component {
   render () {
     if (this.props.loading) {
       return (
-        <main className="form-content">
-          <section className="form">
-            <div id="loader">
-              <div id="box"></div>
-              <div id="hill"></div>
-            </div>
-          </section>
-        </main>
+        <Spinner />
       );
     } else {
       return(
