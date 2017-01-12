@@ -9,16 +9,16 @@ class ArtistPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllAlbums(this.props.artistId)
-      .then(() => this.props.fetchArtist(this.props.artistId)
+    this.props.fetchAllAlbums(this.props.params.artistId)
+      .then(() => this.props.fetchArtist(this.props.params.artistId)
       .then(() => this.props.finishLoading())
     );
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.artistId !== nextProps.artistId) {
-      this.props.fetchAllAlbums(this.props.artistId)
-        .then(() => this.props.fetchArtist(this.props.artistId)
+    if (this.props.params.artistId !== nextProps.params.artistId) {
+      this.props.fetchAllAlbums(nextProps.params.artistId)
+        .then(() => this.props.fetchArtist(nextProps.params.artistId)
         .then(() => this.props.finishLoading())
       );
     }
