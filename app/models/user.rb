@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_attached_file :artist_pic, styles: {thumb: "50x50#", full: "120#"}, default_url: 'default.jpg'
+  has_attached_file :artist_pic, styles: {thumb: "50x50#", full: "120x100#"}, default_url: 'default.jpg'
   validates_attachment_content_type :artist_pic, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :band_header, styles: {full: "975x180#"}, default_url: 'hrt.jpg'
