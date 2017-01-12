@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import AlbumIndex from '../../album/album_index/album_index';
+import Spinner from '../../spinner/spinner';
 
 class ArtistPage extends React.Component {
   constructor (props) {
@@ -8,14 +9,18 @@ class ArtistPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllAlbums(this.props.artistId);
-    this.props.fetchArtist(this.props.artistId);
+    this.props.fetchAllAlbums(this.props.artistId)
+      .then(() => this.props.fetchArtist(this.props.artistId)
+      .then(() => this.props.finishLoading())
+    );
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.artistId !== nextProps.artistId) {
-      this.props.fetchAllAlbums(nextProps.artistId);
-      this.props.fetchArtist(nextProps.artistId);
+      this.props.fetchAllAlbums(this.props.artistId)
+        .then(() => this.props.fetchArtist(this.props.artistId)
+        .then(() => this.props.finishLoading())
+      );
     }
   }
 
@@ -53,19 +58,25 @@ class ArtistPage extends React.Component {
     if (this.props.artist.primary_color && document.getElementsByClassName("root")[0] != undefined) {
       document.getElementsByClassName("root")[0].style = `background: ${ this.props.artist.primary_color } !important;`;
     }
-    return (
-      <main className="artist-page-container group" style={ {backgroundColor: this.props.artist.secondary_color, color: this.props.artist.text_color }}>
-        <div>
-          <header className="artist-header-image">
-            <Link to={ `/artist/${ this.props.artistId }` }>
-              <img src={ this.props.artist.band_header } />
-            </Link>
-          </header>
-          { this.AlbumIndex() }
-          { this.ArtistSidebar() }
-        </div>
-      </main>
-    );
+    if (this.props.loading) {
+      return (
+        <Spinner />
+      );
+    } else {
+      return (
+        <main className="artist-page-container group" style={ {backgroundColor: this.props.artist.secondary_color, color: this.props.artist.text_color }}>
+          <div>
+            <header className="artist-header-image">
+              <Link to={ `/artist/${ this.props.artistId }` }>
+                <img src={ this.props.artist.band_header } />
+              </Link>
+            </header>
+            { this.AlbumIndex() }
+            { this.ArtistSidebar() }
+          </div>
+        </main>
+      );
+    }
   }
 }
 
