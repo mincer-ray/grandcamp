@@ -28,6 +28,15 @@ const Root = ({ store }) => {
     }
   };
 
+  const _ensureProperUser = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    const albumArtist = store.getState().artist;
+    
+    if (currentUser.id != albumArtist.id) {
+      replace('/');
+    }
+  };
+
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
@@ -75,7 +84,7 @@ const Root = ({ store }) => {
           <Route
             path='/album/:albumId/edit'
             component={ AlbumFormContainer }
-            onEnter={ _ensureLoggedIn } />
+            onEnter={ _ensureProperUser } />
           <Route
             path='/new-album'
             component={ AlbumFormContainer }

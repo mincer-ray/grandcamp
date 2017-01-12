@@ -162,7 +162,9 @@ class Splash extends React.Component {
           <section className="featured-content group">
             <ul>
               <h2 className="featured-title">Listen to new albums by our featured artists</h2>
-              { this.FeaturedRandom() }
+              <div className="random-container">
+                { this.FeaturedRandom() }
+              </div>
             </ul>
           </section>
         </main>
