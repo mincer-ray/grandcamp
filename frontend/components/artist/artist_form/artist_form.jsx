@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from '../../spinner/spinner';
 
 class ArtistForm extends React.Component {
   constructor (props) {
@@ -71,14 +72,7 @@ class ArtistForm extends React.Component {
   render () {
     if (this.props.loading) {
       return (
-        <main className="form-content">
-          <section className="form">
-            <div id="loader">
-              <div id="box"></div>
-              <div id="hill"></div>
-            </div>
-          </section>
-        </main>
+        <Spinner />
       );
     } else {
       return (
