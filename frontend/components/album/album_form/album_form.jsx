@@ -183,6 +183,7 @@ class AlbumForm extends React.Component {
           <section className="form group album">
           { this.deleteAlbumButton() }
           <form onSubmit={ this.handleSubmit }>
+            <div className="info">
             <label><p>Album Title</p>
               <input
                 id="title"
@@ -211,14 +212,17 @@ class AlbumForm extends React.Component {
                 value={ this.state.date }
                 onChange={this.updateState}/>
             </label>
+            <Alerts errors={ this.props.errors }/>
+            <button className="album-submit-button" type="submit">Submit</button>
+            </div>
+            <div className="tracks">
             <a onClick={ this.removeSongForm }>-Remove Song-</a>
             <ul className="trackForms group">
               { this.state.trackForms }
             </ul>
             <a onClick={ this.addSongForm }>+Add Song+</a>
             <br></br>
-            <Alerts errors={ this.props.errors }/>
-            <button className="album-submit-button" type="submit">Submit</button>
+            </div>
           </form>
           </section>
         </main>

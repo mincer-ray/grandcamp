@@ -4,7 +4,6 @@ class SongForm extends React.Component {
   render() {
     return(
       <li>
-        <p>Track</p>
         <label><p>Title</p>
           <input
             id={ `songTitle${ this.props.trackCount }` }

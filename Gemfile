@@ -44,6 +44,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

@@ -16,9 +16,10 @@
   display: block;
   margin: auto;
   background-image: image-url("splash.jpg");
-  background-size: 100%;
-  width: 1400px;
-  height: 530px;
+  background-position: center top;
+  background-size: cover;
+  max-width: 1400px;
+  height: 500px;
   background-repeat: no-repeat;
 }
 
